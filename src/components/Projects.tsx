@@ -32,37 +32,75 @@ function ProjectCard({ p, i, off }: { p: typeof projects[0]; i: number; off: Mot
   const cs = useTransform(off, [-0.5 + delay, 0, 0.4], [0.86, 1, 0.98]);
 
   return (
-    <motion.div style={{ x: cx, y: cy, opacity: co, scale: cs }}>
+    <motion.div style={{ x: cx, y: cy, opacity: co, scale: cs, height: "100%" }}>
       <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="glass glass-hover p-5 flex flex-col gap-3 cursor-default h-full"
+        className="glass glass-hover h-full"
         style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "clamp(1rem, 1.8vh, 1.8rem)",
+          padding: "clamp(1.4rem, 3vh, 3rem) clamp(1.4rem, 2.5vw, 2.8rem)",
+          borderWidth: "1px",
+          borderStyle: "solid",
           borderColor: hovered ? "var(--accent-glow)" : "var(--border)",
           boxShadow: hovered ? "0 16px 40px rgba(0,0,0,0.22), 0 0 0 1px var(--accent-dim)" : "none",
-          transform: hovered ? "translateY(-3px)" : "none",
+          transform: hovered ? "translateY(-4px)" : "none",
           transition: "border-color 0.3s, box-shadow 0.3s, transform 0.3s",
+          cursor: "default",
         }}
       >
-        <div className="flex items-start justify-between gap-2">
-          <div>
-            <div className="section-label mb-1">{p.id}</div>
-            <h3 className="font-semibold heading" style={{ color: "var(--text-primary)", letterSpacing: "-0.02em", fontSize: "clamp(1.1rem, 1.5vw, 1.35rem)" }}>{p.title}</h3>
-            <p className="mt-0.5" style={{ color: "var(--text-muted)", fontSize: "clamp(0.88rem, 1.1vw, 1.05rem)" }}>{p.subtitle}</p>
+        {/* Header row */}
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem" }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div className="section-label" style={{ fontSize: "clamp(0.7rem, 0.9vw, 0.95rem)", marginBottom: "0.5rem" }}>{p.id}</div>
+            <h3 className="font-semibold heading" style={{
+              color: "var(--text-primary)",
+              letterSpacing: "-0.02em",
+              fontSize: "clamp(1.4rem, 2.5vw, 3rem)",
+            }}>{p.title}</h3>
+            <p style={{ color: "var(--text-muted)", fontSize: "clamp(1rem, 1.5vw, 1.7rem)", marginTop: "0.4rem" }}>{p.subtitle}</p>
           </div>
-          <div className="flex items-center gap-2 flex-shrink-0 mt-1">
-            <span className="text-xs" style={{ color: "var(--text-muted)" }}>{p.year}</span>
-            <a href={p.github} target="_blank" rel="noopener noreferrer"
-              className="text-xs px-2 py-0.5 rounded-full border transition-all duration-200"
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexShrink: 0, marginTop: "0.25rem" }}>
+            <span style={{ color: "var(--text-muted)", fontSize: "clamp(0.85rem, 1.1vw, 1.1rem)" }}>{p.year}</span>
+            <a
+              href={p.github}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 borderColor: hovered ? "var(--accent-glow)" : "var(--border-strong)",
                 color: hovered ? "var(--accent)" : "var(--text-muted)",
-              }}>↗</a>
+                fontSize: "clamp(0.9rem, 1.2vw, 1.3rem)",
+                padding: "0.25rem 0.7rem",
+                borderRadius: "9999px",
+                border: "1px solid",
+                transition: "all 0.2s",
+              }}
+            >↗</a>
           </div>
         </div>
-        <p className="leading-relaxed flex-1" style={{ color: "var(--text-secondary)", fontSize: "clamp(0.92rem, 1.2vw, 1.1rem)" }}>{p.desc}</p>
-        <div className="flex flex-wrap gap-1.5">
-          {p.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+
+        {/* Description */}
+        <p style={{
+          color: "var(--text-secondary)",
+          fontSize: "clamp(1rem, 1.5vw, 1.7rem)",
+          lineHeight: 1.75,
+          flex: 1,
+        }}>{p.desc}</p>
+
+        {/* Tags */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+          {p.tags.map(tag => (
+            <span key={tag} style={{
+              fontSize: "clamp(0.85rem, 1.1vw, 1.2rem)",
+              padding: "0.3rem 0.85rem",
+              borderRadius: "9999px",
+              border: "1px solid var(--border)",
+              color: "var(--text-muted)",
+              background: "var(--surface-subtle)",
+            }}>{tag}</span>
+          ))}
         </div>
       </div>
     </motion.div>
@@ -80,26 +118,37 @@ export default function Projects() {
       <div className="absolute inset-0 grid-bg pointer-events-none" />
       <div style={{ minHeight: "100%", display: "flex", alignItems: "center", padding: "5vh 2.5vw 2vh" }}>
       <div style={{ width: "100%", maxWidth: "99vw", margin: "0 auto" }} className="relative z-10">
-        <motion.div style={{ x: headerX, opacity: headerO }} className="flex items-end justify-between mb-10 flex-wrap gap-3">
-          <div>
-            <div className="section-label mb-3" style={{ fontSize: "clamp(0.75rem, 1vw, 1rem)" }}>02 — Work</div>
+
+        <motion.div style={{ x: headerX, opacity: headerO }} className="flex items-end justify-between flex-wrap gap-3">
+          <div style={{ marginBottom: "clamp(1.5rem, 3vh, 3rem)" }}>
+            <div className="section-label" style={{ fontSize: "clamp(0.75rem, 1vw, 1rem)", marginBottom: "0.75rem" }}>02 — Work</div>
             <h2 className="font-bold heading" style={{ fontSize: "clamp(3.5rem, 7vw, 10rem)" }}>
               <span style={{ color: "var(--text-primary)" }}>Selected </span>
               <span style={{ color: "var(--accent)" }}>projects</span>
             </h2>
           </div>
-          <a href="https://github.com/Mandchouno" target="_blank" rel="noopener noreferrer"
-            className="text-xs transition-colors duration-200"
-            style={{ color: "var(--text-muted)" }}
+          <a
+            href="https://github.com/Mandchouno"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--text-muted)", fontSize: "clamp(0.9rem, 1.2vw, 1.3rem)", marginBottom: "clamp(1.5rem, 3vh, 3rem)" }}
             onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "var(--accent)")}
-            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "var(--text-muted)")}>
+            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "var(--text-muted)")}
+          >
             All on GitHub →
           </a>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "clamp(1rem, 2vw, 2.5rem)",
+          alignItems: "stretch",
+          gridAutoRows: "1fr",
+        }}>
           {projects.map((p, i) => <ProjectCard key={p.id} p={p} i={i} off={off} />)}
         </div>
+
       </div>
       </div>
     </motion.section>
