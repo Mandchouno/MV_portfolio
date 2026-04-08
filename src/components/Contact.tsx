@@ -33,11 +33,12 @@ function SocialLink({ icon, label, handle, href, accent, off, delay }: {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      style={{ x: lx, y: ly, opacity: lo, display: "block", textDecoration: "none", borderColor: accent ? "var(--accent-glow)" : undefined }}
+      className="glass glass-hover"
+      style={{ x: lx, y: ly, opacity: lo, display: "block", textDecoration: "none", borderColor: accent ? "var(--accent-glow)" : "var(--border)" }}
       onMouseEnter={e => {
         const el = e.currentTarget as HTMLElement;
         el.style.borderColor = "var(--accent-glow)";
-        el.style.transform = "translateX(5px)";
+        el.style.transform = "translateX(6px)";
       }}
       onMouseLeave={e => {
         const el = e.currentTarget as HTMLElement;
@@ -45,18 +46,23 @@ function SocialLink({ icon, label, handle, href, accent, off, delay }: {
         el.style.transform = "none";
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: "clamp(0.9rem, 1.5vw, 1.5rem)", padding: "clamp(0.9rem, 1.5vh, 1.4rem) clamp(1rem, 1.8vw, 1.6rem)" }}>
-        {/* Icon */}
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "clamp(1.2rem, 2.5vw, 3rem)",
+        padding: "clamp(1.2rem, 2.5vh, 2.2rem) clamp(1.4rem, 3vw, 3.2rem)",
+      }}>
+        {/* Icon badge */}
         <div style={{
-          width: "clamp(2.4rem, 3.5vw, 3.2rem)",
-          height: "clamp(2.4rem, 3.5vw, 3.2rem)",
-          borderRadius: "0.75rem",
+          width: "clamp(2.6rem, 4.5vw, 5rem)",
+          height: "clamp(2.6rem, 4.5vw, 5rem)",
+          borderRadius: "0.85rem",
           display: "flex", alignItems: "center", justifyContent: "center",
           flexShrink: 0,
           background: accent ? "var(--accent-dim)" : "var(--surface-medium)",
           color: accent ? "var(--accent)" : "var(--text-secondary)",
           border: "1px solid " + (accent ? "var(--accent-glow)" : "var(--border)"),
-          fontSize: "clamp(0.75rem, 1vw, 0.95rem)",
+          fontSize: "clamp(0.85rem, 1.4vw, 1.5rem)",
           fontFamily: "ui-monospace, monospace",
           fontWeight: 700,
         }}>
@@ -64,10 +70,21 @@ function SocialLink({ icon, label, handle, href, accent, off, delay }: {
         </div>
         {/* Text */}
         <div style={{ flex: 1 }}>
-          <div style={{ color: "var(--accent)", fontSize: "clamp(0.6rem, 0.75vw, 0.72rem)", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase" }}>{label}</div>
-          <div style={{ color: accent ? "var(--accent)" : "var(--text-primary)", fontSize: "clamp(0.95rem, 1.35vw, 1.2rem)", fontWeight: 500, marginTop: "0.25rem" }}>{handle}</div>
+          <div style={{
+            color: "var(--accent)",
+            fontSize: "clamp(0.6rem, 0.8vw, 0.85rem)",
+            fontWeight: 600,
+            letterSpacing: "0.28em",
+            textTransform: "uppercase",
+          }}>{label}</div>
+          <div style={{
+            color: accent ? "var(--accent)" : "var(--text-primary)",
+            fontSize: "clamp(1rem, 1.8vw, 2rem)",
+            fontWeight: 500,
+            marginTop: "0.25rem",
+          }}>{handle}</div>
         </div>
-        <span style={{ color: accent ? "var(--accent)" : "var(--text-muted)", fontSize: "1.1rem" }}>↗</span>
+        <span style={{ color: accent ? "var(--accent)" : "var(--text-muted)", fontSize: "clamp(1rem, 1.8vw, 2rem)" }}>↗</span>
       </div>
     </motion.a>
   );
@@ -102,24 +119,23 @@ export default function Contact() {
       <div
         className="relative z-10"
         style={{
-          padding: "0 clamp(1.2rem, 2.5vw, 3rem) clamp(3.5rem, 8vh, 6rem)",
-          maxWidth: "min(97vw, 1700px)",
+          padding: "0 2.5vw clamp(3rem, 7vh, 6rem)",
+          maxWidth: "99vw",
           width: "100%",
           marginLeft: "auto",
           marginRight: "auto",
         }}
       >
-        {/* Section label — properly aligned with content */}
-        <div className="section-label" style={{ fontSize: "clamp(0.65rem, 0.85vw, 0.8rem)", marginBottom: "clamp(1rem, 2vh, 1.8rem)" }}>
-          04 — Contact
-        </div>
-
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(2rem, 5vw, 6rem)", alignItems: "end" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(2rem, 6vw, 8rem)", alignItems: "end" }}>
 
           {/* ── Left column ────────────────────────────────────────────── */}
           <div>
+            {/* Section label — sits right above the heading */}
+            <div className="section-label" style={{ fontSize: "clamp(0.75rem, 1vw, 1.1rem)", marginBottom: "0.6rem" }}>
+              04 — Contact
+            </div>
             <motion.h2
-              style={{ x: titleX, opacity: titleO, fontSize: "clamp(2.8rem, 5.5vw, 5.5rem)" }}
+              style={{ x: titleX, opacity: titleO, fontSize: "clamp(2.2rem, 4vw, 5rem)" }}
               className="font-bold mb-5 heading"
             >
               <span style={{ color: "var(--text-primary)", display: "block" }}>
@@ -128,8 +144,8 @@ export default function Contact() {
               </span>
             </motion.h2>
 
-            <motion.p style={{ x: descX, opacity: descO, marginBottom: "clamp(1.2rem, 2.5vh, 2rem)" }}>
-              <span style={{ color: "var(--text-secondary)", fontSize: "clamp(1rem, 1.45vw, 1.25rem)", lineHeight: 1.85 }}>
+            <motion.p style={{ x: descX, opacity: descO, marginBottom: "clamp(1.5rem, 3vh, 3rem)" }}>
+              <span style={{ color: "var(--text-secondary)", fontSize: "clamp(0.95rem, 1.4vw, 1.5rem)", lineHeight: 1.8 }}>
                 Open to new opportunities, collaborations, or a good conversation about
                 data, AI, or football. Feel free to reach out.
               </span>
@@ -147,25 +163,30 @@ export default function Contact() {
               onMouseEnter={e => (e.currentTarget.style.borderColor = "var(--accent-glow)")}
               onMouseLeave={e => (e.currentTarget.style.borderColor = "var(--border)")}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "clamp(0.9rem, 1.5vw, 1.4rem)", padding: "clamp(0.9rem, 1.5vh, 1.4rem) clamp(1rem, 1.8vw, 1.6rem)" }}>
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "clamp(1rem, 2vw, 2rem)",
+                padding: "clamp(1rem, 2vh, 1.8rem) clamp(1.2rem, 2.5vw, 2.6rem)",
+              }}>
                 <div style={{
-                  width: "clamp(2.4rem, 3.5vw, 3.2rem)",
-                  height: "clamp(2.4rem, 3.5vw, 3.2rem)",
-                  borderRadius: "0.75rem",
+                  width: "clamp(2.6rem, 4.5vw, 5rem)",
+                  height: "clamp(2.6rem, 4.5vw, 5rem)",
+                  borderRadius: "0.85rem",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   flexShrink: 0,
                   background: "var(--accent-dim)",
                   color: "var(--accent)",
                   border: "1px solid var(--accent-glow)",
-                  fontSize: "clamp(0.85rem, 1.1vw, 1.05rem)",
+                  fontSize: "clamp(0.85rem, 1.4vw, 1.5rem)",
                   fontFamily: "ui-monospace, monospace",
                   fontWeight: 700,
                 }}>@</div>
                 <div style={{ flex: 1 }}>
-                  <div style={{ color: "var(--accent)", fontSize: "clamp(0.6rem, 0.75vw, 0.72rem)", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase" }}>Email</div>
-                  <div style={{ color: "var(--text-primary)", fontSize: "clamp(0.95rem, 1.35vw, 1.2rem)", fontWeight: 500, marginTop: "0.25rem" }}>mandi.vigier@gmail.com</div>
+                  <div style={{ color: "var(--accent)", fontSize: "clamp(0.6rem, 0.8vw, 0.85rem)", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase" }}>Email</div>
+                  <div style={{ color: "var(--text-primary)", fontSize: "clamp(1rem, 1.8vw, 2rem)", fontWeight: 500, marginTop: "0.25rem" }}>mandi.vigier@gmail.com</div>
                 </div>
-                <span style={{ color: "var(--accent)", fontSize: "clamp(0.8rem, 1vw, 0.95rem)" }}>
+                <span style={{ color: "var(--accent)", fontSize: "clamp(0.85rem, 1.2vw, 1.3rem)" }}>
                   {copied ? "Copied ✓" : "Copy →"}
                 </span>
               </div>
@@ -173,7 +194,7 @@ export default function Contact() {
           </div>
 
           {/* ── Right column — social links ─────────────────────────── */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "clamp(0.7rem, 1.2vh, 1.1rem)" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "clamp(0.8rem, 1.5vh, 1.6rem)" }}>
             {links.map((link, i) => (
               <SocialLink key={link.label} {...link} off={off} delay={i * 0.06} />
             ))}
@@ -187,10 +208,10 @@ export default function Contact() {
         style={{
           borderColor: "var(--border)",
           color: "var(--text-muted)",
-          fontSize: "clamp(0.65rem, 0.8vw, 0.75rem)",
+          fontSize: "clamp(0.75rem, 1vw, 1rem)",
           fontFamily: "ui-monospace, monospace",
           letterSpacing: "0.02em",
-          padding: "clamp(0.75rem, 1.5vh, 1.2rem) clamp(1.2rem, 2.5vw, 3rem)",
+          padding: "clamp(0.9rem, 1.8vh, 1.6rem) 2.5vw",
         }}
       >
         <span>Mandi Téo Vigier © {new Date().getFullYear()}</span>

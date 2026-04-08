@@ -14,7 +14,7 @@ const navLinks = [
 
 function ThemeIcon({ theme }: { theme: "dark" | "light" }) {
   return theme === "dark" ? (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="5"/>
       <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
       <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
@@ -22,7 +22,7 @@ function ThemeIcon({ theme }: { theme: "dark" | "light" }) {
       <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
     </svg>
   ) : (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
     </svg>
   );
@@ -60,7 +60,7 @@ export default function Navigation() {
   return (
     <div
       className="fixed z-50"
-      style={{ top: "clamp(0.75rem, 1.5vh, 1.25rem)", left: "50%", transform: "translateX(-50%)" }}
+      style={{ top: "clamp(1rem, 2vh, 1.8rem)", left: "50%", transform: "translateX(-50%)" }}
     >
       <motion.nav
         initial={{ y: -24, opacity: 0 }}
@@ -78,20 +78,20 @@ export default function Navigation() {
         <div style={{
           display: "flex",
           alignItems: "center",
-          gap: "clamp(0.9rem, 2.2vw, 2.4rem)",
-          padding: "0 clamp(1.6rem, 3vw, 3rem)",
-          height: "clamp(3.4rem, 5.5vh, 4.8rem)",
+          gap: "clamp(1.4rem, 3vw, 4rem)",
+          padding: "0 clamp(2.5rem, 5vw, 6rem)",
+          height: "clamp(4.5rem, 7vh, 6.5rem)",
         }}>
           {/* Logo */}
           <button
             onClick={() => goTo(0)}
-            style={{ color: "var(--text-muted)", letterSpacing: "0.18em", fontSize: "clamp(0.82rem, 1.05vw, 1rem)", fontFamily: "ui-monospace, monospace", fontWeight: 700, textTransform: "uppercase", marginRight: "clamp(0.4rem, 1vw, 1rem)" }}
+            style={{ color: "var(--text-muted)", letterSpacing: "0.18em", fontSize: "clamp(1.1rem, 1.6vw, 1.6rem)", fontFamily: "ui-monospace, monospace", fontWeight: 700, textTransform: "uppercase", marginRight: "clamp(0.6rem, 1.2vw, 1.5rem)" }}
           >
             MTV
           </button>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center" style={{ gap: "clamp(0.8rem, 1.8vw, 1.8rem)" }}>
+          <div className="hidden md:flex items-center" style={{ gap: "clamp(1.2rem, 2.5vw, 3rem)" }}>
             {navLinks.map(link => {
               const isActive = current === link.index;
               return (
@@ -99,7 +99,7 @@ export default function Navigation() {
                   key={link.label}
                   onClick={() => goTo(link.index)}
                   className="relative transition-colors duration-200"
-                  style={{ color: isActive ? "var(--accent)" : "var(--text-muted)", fontSize: "clamp(0.88rem, 1.1vw, 1.05rem)", letterSpacing: "0.02em" }}
+                  style={{ color: isActive ? "var(--accent)" : "var(--text-muted)", fontSize: "clamp(1.1rem, 1.6vw, 1.6rem)", letterSpacing: "0.02em" }}
                 >
                   {link.label}
                   {isActive && (
@@ -123,7 +123,7 @@ export default function Navigation() {
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex transition-all duration-200"
-            style={{ color: "var(--accent)", fontSize: "clamp(0.82rem, 1vw, 0.98rem)", padding: "0.3rem 1rem", borderRadius: "9999px", border: "1px solid var(--accent-glow)" }}
+            style={{ color: "var(--accent)", fontSize: "clamp(1rem, 1.4vw, 1.4rem)", padding: "0.45rem 1.4rem", borderRadius: "9999px", border: "1px solid var(--accent-glow)" }}
             onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = "var(--accent-dim)")}
             onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = "transparent")}
           >
@@ -134,7 +134,7 @@ export default function Navigation() {
           <button
             onClick={toggleTheme}
             title={theme === "dark" ? "Light mode" : "Dark mode"}
-            style={{ color: "var(--text-muted)", display: "flex", alignItems: "center", justifyContent: "center", width: "2.2rem", height: "2.2rem", borderRadius: "50%", border: "1px solid var(--border)", flexShrink: 0 }}
+            style={{ color: "var(--text-muted)", display: "flex", alignItems: "center", justifyContent: "center", width: "3rem", height: "3rem", borderRadius: "50%", border: "1px solid var(--border)", flexShrink: 0 }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--accent)"; el.style.borderColor = "var(--accent-glow)"; }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--text-muted)"; el.style.borderColor = "var(--border)"; }}
           >

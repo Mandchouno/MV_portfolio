@@ -42,30 +42,51 @@ function ExpCard({ exp, i, off }: { exp: typeof experiences[0]; i: number; off: 
 
   return (
     <motion.div style={{ x: cx, y: cy, opacity: co }}>
-      <div className="glass p-5"
-        style={{
-          borderColor: exp.accent ? "var(--accent-glow)" : "var(--border)",
-          boxShadow: exp.accent ? "0 8px 32px rgba(0,0,0,0.18), 0 0 0 1px var(--accent-dim)" : "none",
-        }}>
-        <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-          <div className="flex items-center gap-3 flex-wrap">
-            <span className="font-semibold heading" style={{ color: "var(--text-primary)", fontSize: "clamp(1.1rem, 1.5vw, 1.35rem)" }}>{exp.role}</span>
-            <span className="tag" style={{ color: exp.accent ? "var(--accent)" : "var(--text-muted)", borderColor: exp.accent ? "var(--accent-glow)" : "var(--border)" }}>{exp.type}</span>
-            <span className="text-sm" style={{ color: exp.accent ? "var(--accent)" : "var(--text-secondary)" }}>@ {exp.company}</span>
+      <div className="glass" style={{
+        borderColor: exp.accent ? "var(--accent-glow)" : "var(--border)",
+        boxShadow: exp.accent ? "0 8px 32px rgba(0,0,0,0.18), 0 0 0 1px var(--accent-dim)" : "none",
+        padding: "clamp(1.4rem, 3vh, 2.8rem) clamp(1.5rem, 3vw, 3rem)",
+      }}>
+        {/* Header */}
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem", marginBottom: "clamp(0.9rem, 1.8vh, 1.8rem)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "clamp(0.6rem, 1.2vw, 1.2rem)", flexWrap: "wrap" }}>
+            <span className="font-semibold heading" style={{ color: "var(--text-primary)", fontSize: "clamp(1.4rem, 2.5vw, 2.8rem)" }}>{exp.role}</span>
+            <span style={{
+              fontSize: "clamp(0.75rem, 1vw, 1rem)", fontWeight: 500,
+              padding: "0.25rem 0.85rem", borderRadius: "9999px",
+              border: "1px solid " + (exp.accent ? "var(--accent-glow)" : "var(--border)"),
+              color: exp.accent ? "var(--accent)" : "var(--text-muted)",
+              background: exp.accent ? "var(--accent-dim)" : "var(--surface-subtle)",
+            }}>{exp.type}</span>
+            <span style={{ color: exp.accent ? "var(--accent)" : "var(--text-secondary)", fontSize: "clamp(1.1rem, 1.8vw, 2rem)" }}>@ {exp.company}</span>
           </div>
-          <div className="text-right" style={{ color: "var(--text-muted)", fontSize: "0.75rem" }}>
-            <div>{exp.period}</div><div>{exp.location}</div>
+          <div style={{ textAlign: "right", color: "var(--text-muted)", fontSize: "clamp(0.85rem, 1.1vw, 1.1rem)", flexShrink: 0 }}>
+            <div>{exp.period}</div>
+            <div style={{ marginTop: "0.2rem" }}>{exp.location}</div>
           </div>
         </div>
-        <ul className="space-y-1 mb-3">
+
+        {/* Bullet points */}
+        <ul style={{ display: "flex", flexDirection: "column", gap: "clamp(0.4rem, 0.8vh, 0.8rem)", marginBottom: "clamp(0.9rem, 1.8vh, 1.8rem)" }}>
           {exp.points.map((pt, j) => (
-            <li key={j} className="flex gap-2" style={{ color: "var(--text-secondary)", fontSize: "clamp(0.95rem, 1.25vw, 1.15rem)" }}>
-              <span style={{ color: "var(--accent)", flexShrink: 0 }}>·</span>{pt}
+            <li key={j} style={{ display: "flex", gap: "0.75rem", color: "var(--text-secondary)", fontSize: "clamp(1rem, 1.5vw, 1.7rem)", lineHeight: 1.7 }}>
+              <span style={{ color: "var(--accent)", flexShrink: 0, marginTop: "0.1em" }}>·</span>{pt}
             </li>
           ))}
         </ul>
-        <div className="flex flex-wrap gap-1.5">
-          {exp.tools.map(t => <span key={t} className="tag">{t}</span>)}
+
+        {/* Tools */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+          {exp.tools.map(t => (
+            <span key={t} style={{
+              fontSize: "clamp(0.85rem, 1.1vw, 1.2rem)",
+              padding: "0.3rem 0.85rem",
+              borderRadius: "9999px",
+              border: "1px solid var(--border)",
+              color: "var(--text-muted)",
+              background: "var(--surface-subtle)",
+            }}>{t}</span>
+          ))}
         </div>
       </div>
     </motion.div>
@@ -80,15 +101,20 @@ function EduCard({ edu, i, off }: { edu: typeof education[0]; i: number; off: Mo
 
   return (
     <motion.div style={{ x: cx, opacity: co }}>
-      <div className="glass p-5" style={{ borderColor: edu.accent ? "var(--accent-glow)" : "var(--border)" }}>
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
-            <p className="font-semibold heading" style={{ color: "var(--text-primary)", fontSize: "clamp(1.1rem, 1.5vw, 1.35rem)" }}>{edu.degree}</p>
-            {edu.specialty && <p className="mt-1" style={{ color: "var(--accent)", fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)" }}>{edu.specialty}</p>}
-            <p className="mt-1" style={{ color: "var(--text-secondary)", fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)" }}>{edu.institution}</p>
+      <div className="glass" style={{
+        borderColor: edu.accent ? "var(--accent-glow)" : "var(--border)",
+        boxShadow: edu.accent ? "0 8px 32px rgba(0,0,0,0.18), 0 0 0 1px var(--accent-dim)" : "none",
+        padding: "clamp(1.4rem, 3vh, 2.8rem) clamp(1.5rem, 3vw, 3rem)",
+      }}>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "space-between", gap: "1.5rem" }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <p className="font-semibold heading" style={{ color: "var(--text-primary)", fontSize: "clamp(1.4rem, 2.5vw, 2.8rem)" }}>{edu.degree}</p>
+            {edu.specialty && <p style={{ color: "var(--accent)", fontSize: "clamp(1.1rem, 1.8vw, 2rem)", marginTop: "0.6rem" }}>{edu.specialty}</p>}
+            <p style={{ color: "var(--text-secondary)", fontSize: "clamp(1.05rem, 1.6vw, 1.8rem)", marginTop: "0.5rem" }}>{edu.institution}</p>
           </div>
-          <div className="text-right" style={{ color: "var(--text-muted)", fontSize: "0.75rem" }}>
-            <div>{edu.period}</div><div>{edu.location}</div>
+          <div style={{ textAlign: "right", color: "var(--text-muted)", fontSize: "clamp(0.85rem, 1.1vw, 1.1rem)", flexShrink: 0 }}>
+            <div>{edu.period}</div>
+            <div style={{ marginTop: "0.25rem" }}>{edu.location}</div>
           </div>
         </div>
       </div>
@@ -100,14 +126,19 @@ function LangCard({ off }: { off: MotionValue<number> }) {
   const co = useTransform(off, [-0.65, -0.25, 0, 0.4, 0.65], [0, 1, 1, 1, 0]);
   return (
     <motion.div style={{ opacity: co }}>
-      <div className="glass p-5">
-        <div className="section-label mb-3">Languages</div>
-        <div className="flex flex-wrap gap-3">
+      <div className="glass" style={{ padding: "clamp(1.4rem, 3vh, 2.8rem) clamp(1.5rem, 3vw, 3rem)" }}>
+        <div className="section-label" style={{ fontSize: "clamp(0.75rem, 1vw, 1rem)", marginBottom: "1.2rem" }}>Languages</div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "clamp(0.75rem, 1.2vw, 1.2rem)" }}>
           {[{ l: "French", lv: "Native" }, { l: "Spanish", lv: "Native" }, { l: "English", lv: "Professional" }].map(item => (
-            <div key={item.l} className="flex items-center gap-2 px-3 py-2 rounded-xl"
-              style={{ background: "var(--surface-subtle)", border: "1px solid var(--border)" }}>
-              <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{item.l}</span>
-              <span className="text-xs" style={{ color: "var(--text-muted)" }}>{item.lv}</span>
+            <div key={item.l} style={{
+              display: "flex", alignItems: "center", gap: "0.75rem",
+              padding: "clamp(0.6rem, 1.2vh, 1.1rem) clamp(1rem, 2vw, 2rem)",
+              borderRadius: "1rem",
+              background: "var(--surface-subtle)",
+              border: "1px solid var(--border)",
+            }}>
+              <span style={{ color: "var(--text-primary)", fontSize: "clamp(1rem, 1.5vw, 1.6rem)", fontWeight: 500 }}>{item.l}</span>
+              <span style={{ color: "var(--text-muted)", fontSize: "clamp(0.8rem, 1.1vw, 1.1rem)" }}>{item.lv}</span>
             </div>
           ))}
         </div>
@@ -138,12 +169,14 @@ export default function Experience() {
             </h2>
           </div>
           {/* Tabs */}
-          <div className="glass flex gap-1 p-1" style={{ borderRadius: "999px" }}>
+          <div className="glass flex gap-1 p-1.5" style={{ borderRadius: "999px" }}>
             {(["work", "education"] as const).map(t => (
               <button key={t} onClick={() => setTab(t)}
-                className="px-4 py-1.5 text-xs font-medium capitalize transition-all duration-200"
+                className="font-medium capitalize transition-all duration-200"
                 style={{
                   borderRadius: "999px",
+                  padding: "clamp(0.45rem, 0.9vh, 0.8rem) clamp(1rem, 2vw, 2rem)",
+                  fontSize: "clamp(0.85rem, 1.1vw, 1.1rem)",
                   background: tab === t ? "var(--accent-dim)" : "transparent",
                   color: tab === t ? "var(--accent)" : "var(--text-muted)",
                   border: tab === t ? "1px solid var(--accent-glow)" : "1px solid transparent",
