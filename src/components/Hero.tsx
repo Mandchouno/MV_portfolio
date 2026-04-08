@@ -83,9 +83,8 @@ export default function Hero() {
 
         {/* Typewriter */}
         <motion.div
-          style={{ y: subY, opacity: subO, fontSize: "clamp(1.2rem, 2.8vw, 2.2rem)" }}
-          className="mb-6 font-light"
-          css={{ height: "clamp(1.8rem, 3.5vh, 2.8rem)" }}
+          style={{ y: subY, opacity: subO, fontSize: "clamp(1.2rem, 2.8vw, 2.2rem)", marginBottom: "clamp(2.5rem, 6vh, 5rem)", height: "clamp(1.8rem, 3.5vh, 2.8rem)" }}
+          className="font-light"
         >
           <span style={{ color: "var(--text-secondary)" }}>{displayed}</span>
           <span className="inline-block w-0.5 ml-0.5 align-middle rounded-sm"
@@ -93,17 +92,17 @@ export default function Hero() {
         </motion.div>
 
         {/* Buttons */}
-        <motion.div style={{ y: btnY, opacity: btnO }} className="flex flex-wrap gap-3 justify-center">
+        <motion.div style={{ y: btnY, opacity: btnO, gap: "clamp(0.8rem, 1.5vw, 1.8rem)" }} className="flex flex-wrap justify-center">
           <a href="/MV_CV_.pdf" target="_blank" rel="noopener noreferrer"
             className="rounded-full font-semibold transition-all duration-300 inline-block"
-            style={{ background: "var(--accent)", color: "#090b0f", fontSize: "clamp(0.8rem, 1vw, 0.95rem)", padding: "clamp(0.55rem, 1.2vh, 0.85rem) clamp(1.4rem, 3vw, 2rem)" }}
+            style={{ background: "var(--accent)", color: "#090b0f", fontSize: "clamp(1.1rem, 2vw, 2.2rem)", padding: "clamp(0.85rem, 1.8vh, 1.6rem) clamp(2rem, 4vw, 4.5rem)" }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--accent-strong)"; el.style.transform = "translateY(-2px)"; el.style.boxShadow = "0 12px 36px var(--accent-glow)"; }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--accent)"; el.style.transform = "none"; el.style.boxShadow = "none"; }}>
             Download CV
           </a>
           <a href="https://github.com/Mandchouno" target="_blank" rel="noopener noreferrer"
             className="rounded-full font-medium border transition-all duration-300 inline-block"
-            style={{ borderColor: "var(--border-strong)", color: "var(--text-secondary)", fontSize: "clamp(0.8rem, 1vw, 0.95rem)", padding: "clamp(0.55rem, 1.2vh, 0.85rem) clamp(1.4rem, 3vw, 2rem)" }}
+            style={{ borderColor: "var(--border-strong)", color: "var(--text-secondary)", fontSize: "clamp(1.1rem, 2vw, 2.2rem)", padding: "clamp(0.85rem, 1.8vh, 1.6rem) clamp(2rem, 4vw, 4.5rem)" }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "var(--accent-glow)"; el.style.color = "var(--accent)"; el.style.transform = "translateY(-2px)"; }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "var(--border-strong)"; el.style.color = "var(--text-secondary)"; el.style.transform = "none"; }}>
             GitHub →
