@@ -184,7 +184,6 @@ export default function ScrollDriven({ children }: { children: ReactNode }) {
       <div className="fixed inset-0 overflow-hidden" style={{ background: "var(--bg)" }}>
         {children}
         <SideDots />
-        <ProgressBar />
       </div>
     </ProgressCtx.Provider>
   );
