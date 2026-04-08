@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "./ScrollDriven";
 
@@ -12,111 +12,192 @@ const navLinks = [
   { label: "Contact",    index: 4 },
 ];
 
+function ThemeIcon({ theme }: { theme: "dark" | "light" }) {
+  return theme === "dark" ? (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </svg>
+  ) : (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  );
+}
+
 export default function Navigation() {
-  const { goTo } = useProgress();
+  const { goTo, smoothProgress } = useProgress();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  // Read current section from scroll progress
   const [current, setCurrent] = useState(0);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
 
-  // We can't use hooks from context here directly for current — listen via effect
-  const { smoothProgress } = useProgress();
-  if (smoothProgress) {
-    smoothProgress.on("change", (v) => setCurrent(Math.round(v)));
-  }
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      setTheme("light");
+      document.documentElement.classList.add("light");
+    }
+  }, []);
+
+  useEffect(() => {
+    return smoothProgress.on("change", (v) => setCurrent(Math.round(v)));
+  }, [smoothProgress]);
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    if (next === "light") {
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
+    }
+    localStorage.setItem("theme", next);
+  };
 
   return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50"
-      style={{
-        background: "rgba(9,11,15,0.8)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
-        borderBottom: "1px solid var(--border)",
-      }}
+    <div
+      className="fixed z-50"
+      style={{ top: "clamp(0.75rem, 1.5vh, 1.25rem)", left: "50%", transform: "translateX(-50%)" }}
     >
-      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-        <button
-          onClick={() => goTo(0)}
-          className="text-xs font-mono font-bold tracking-widest uppercase"
-          style={{ color: "var(--text-muted)", letterSpacing: "0.18em" }}
-        >
-          MTV
-        </button>
+      <motion.nav
+        initial={{ y: -24, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        style={{
+          background: "var(--bg-nav)",
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
+          border: "1px solid var(--border)",
+          borderRadius: "9999px",
+          whiteSpace: "nowrap",
+        }}
+      >
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "clamp(0.9rem, 2.2vw, 2.4rem)",
+          padding: "0 clamp(1.6rem, 3vw, 3rem)",
+          height: "clamp(3.4rem, 5.5vh, 4.8rem)",
+        }}>
+          {/* Logo */}
+          <button
+            onClick={() => goTo(0)}
+            style={{ color: "var(--text-muted)", letterSpacing: "0.18em", fontSize: "clamp(0.82rem, 1.05vw, 1rem)", fontFamily: "ui-monospace, monospace", fontWeight: 700, textTransform: "uppercase", marginRight: "clamp(0.4rem, 1vw, 1rem)" }}
+          >
+            MTV
+          </button>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-7">
-          {navLinks.map(link => {
-            const isActive = current === link.index;
-            return (
-              <button
-                key={link.label}
-                onClick={() => goTo(link.index)}
-                className="relative text-xs tracking-wide transition-colors duration-200"
-                style={{ color: isActive ? "var(--accent)" : "var(--text-muted)" }}
-              >
-                {link.label}
-                {isActive && (
-                  <motion.div
-                    layoutId="nav-dot"
-                    className="absolute -bottom-0.5 left-0 right-0 h-px"
-                    style={{ background: "var(--accent)" }}
-                  />
-                )}
-              </button>
-            );
-          })}
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center" style={{ gap: "clamp(0.8rem, 1.8vw, 1.8rem)" }}>
+            {navLinks.map(link => {
+              const isActive = current === link.index;
+              return (
+                <button
+                  key={link.label}
+                  onClick={() => goTo(link.index)}
+                  className="relative transition-colors duration-200"
+                  style={{ color: isActive ? "var(--accent)" : "var(--text-muted)", fontSize: "clamp(0.88rem, 1.1vw, 1.05rem)", letterSpacing: "0.02em" }}
+                >
+                  {link.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-dot"
+                      className="absolute -bottom-0.5 left-0 right-0 h-px"
+                      style={{ background: "var(--accent)" }}
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Separator */}
+          <div className="hidden md:block w-px self-stretch my-2" style={{ background: "var(--border)" }} />
+
+          {/* CV link */}
           <a
             href="/MV_CV_.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs px-3 py-1 rounded-full border transition-all duration-200"
-            style={{ borderColor: "rgba(110,231,183,0.3)", color: "var(--accent)" }}
+            className="hidden md:inline-flex transition-all duration-200"
+            style={{ color: "var(--accent)", fontSize: "clamp(0.82rem, 1vw, 0.98rem)", padding: "0.3rem 1rem", borderRadius: "9999px", border: "1px solid var(--accent-glow)" }}
             onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = "var(--accent-dim)")}
             onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = "transparent")}
           >
             CV
           </a>
+
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            title={theme === "dark" ? "Light mode" : "Dark mode"}
+            style={{ color: "var(--text-muted)", display: "flex", alignItems: "center", justifyContent: "center", width: "2.2rem", height: "2.2rem", borderRadius: "50%", border: "1px solid var(--border)", flexShrink: 0 }}
+            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--accent)"; el.style.borderColor = "var(--accent-glow)"; }}
+            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--text-muted)"; el.style.borderColor = "var(--border)"; }}
+          >
+            <ThemeIcon theme={theme} />
+          </button>
+
+          {/* Mobile hamburger */}
+          <button className="md:hidden flex flex-col gap-1 p-1" onClick={() => setMenuOpen(!menuOpen)}>
+            {[0, 1, 2].map(i => (
+              <span key={i} className="block transition-all duration-300" style={{
+                width: i === 1 ? "13px" : "17px",
+                height: "1px",
+                background: "var(--text-muted)",
+                opacity: menuOpen && i === 1 ? 0 : 1,
+                transform: menuOpen ? (i === 0 ? "rotate(45deg) translate(3px, 3px)" : i === 2 ? "rotate(-45deg) translate(3px, -3px)" : "none") : "none",
+              }} />
+            ))}
+          </button>
         </div>
+      </motion.nav>
 
-        {/* Mobile */}
-        <button className="md:hidden flex flex-col gap-1.5 p-2" onClick={() => setMenuOpen(!menuOpen)}>
-          {[0, 1, 2].map(i => (
-            <span key={i} className="block h-px transition-all duration-300" style={{
-              width: i === 1 ? "14px" : "18px",
-              background: "var(--text-muted)",
-              opacity: menuOpen && i === 1 ? 0 : 1,
-              transform: menuOpen ? (i === 0 ? "rotate(45deg) translate(3px, 3px)" : i === 2 ? "rotate(-45deg) translate(3px, -3px)" : "none") : "none",
-            }} />
-          ))}
-        </button>
-      </div>
-
+      {/* Mobile dropdown — floats below the pill */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden px-6 pb-5"
-            style={{ background: "rgba(13,13,13,0.95)", borderBottom: "1px solid var(--border)" }}
+            initial={{ opacity: 0, y: -8, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.96 }}
+            transition={{ duration: 0.18 }}
+            style={{
+              position: "absolute",
+              top: "calc(100% + 8px)",
+              left: "50%",
+              transform: "translateX(-50%)",
+              background: "var(--bg-nav)",
+              backdropFilter: "blur(24px)",
+              WebkitBackdropFilter: "blur(24px)",
+              border: "1px solid var(--border)",
+              borderRadius: "1.5rem",
+              padding: "0.75rem",
+              minWidth: "180px",
+            }}
           >
             {navLinks.map(link => (
               <button key={link.label} onClick={() => { goTo(link.index); setMenuOpen(false); }}
-                className="block w-full text-left py-3 text-sm border-b"
-                style={{ color: current === link.index ? "var(--accent)" : "var(--text-secondary)", borderColor: "var(--border)" }}>
+                className="block w-full text-left px-4 py-2.5 rounded-xl transition-colors duration-150"
+                style={{
+                  color: current === link.index ? "var(--accent)" : "var(--text-secondary)",
+                  fontSize: "0.88rem",
+                  background: current === link.index ? "var(--accent-dim)" : "transparent",
+                }}>
                 {link.label}
               </button>
             ))}
-            <a href="/MV_CV_.pdf" target="_blank" rel="noopener noreferrer" className="block mt-4 text-sm" style={{ color: "var(--accent)" }}>
+            <div style={{ height: "1px", background: "var(--border)", margin: "0.5rem 0" }} />
+            <a href="/MV_CV_.pdf" target="_blank" rel="noopener noreferrer"
+              className="block px-4 py-2.5 rounded-xl"
+              style={{ color: "var(--accent)", fontSize: "0.88rem" }}>
               Download CV →
             </a>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </div>
   );
 }

@@ -19,11 +19,11 @@ const stats = [
 ];
 
 const card: React.CSSProperties = {
-  background: "rgba(16,20,28,0.8)",
+  background: "var(--bg-card)",
   backdropFilter: "blur(16px)",
   WebkitBackdropFilter: "blur(16px)",
-  border: "1px solid rgba(231,236,244,0.1)",
-  borderRadius: "1.25rem",
+  border: "1px solid var(--border)",
+  borderRadius: "1.5rem",
 };
 
 export default function About() {
@@ -43,23 +43,38 @@ export default function About() {
 
   return (
     <motion.section
-      style={{ opacity: sectionO, position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "5rem 2.5rem 2rem", overflowY: "auto" }}
+      style={{
+        opacity: sectionO,
+        position: "absolute", inset: 0,
+        display: "flex", flexDirection: "column",
+        justifyContent: "center", alignItems: "center",
+        padding: "5vh 2.5vw 2vh",
+        overflowY: "auto",
+      }}
     >
       <div className="absolute inset-0 grid-bg pointer-events-none" />
 
-      <div style={{ width: "100%", maxWidth: "1024px", position: "relative", zIndex: 1 }}>
+      <div style={{ width: "100%", maxWidth: "99vw", position: "relative", zIndex: 1 }}>
+
         {/* Label */}
-        <motion.div style={{ x: labelX, opacity: labelO }} className="mb-8">
-          <span className="section-label">01 — About</span>
+        <motion.div style={{ x: labelX, opacity: labelO }} className="mb-6">
+          <span className="section-label" style={{ fontSize: "clamp(0.75rem, 1vw, 1rem)" }}>01 — About</span>
         </motion.div>
 
         {/* 2-col grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(1.5rem, 3vw, 3.5rem)", alignItems: "start" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4vw", alignItems: "start" }}>
 
           {/* Left */}
           <div>
-            <motion.h2 style={{ x: titleX, opacity: titleO }} className="heading" css={{ color: "var(--text-primary)" }}>
-              <span style={{ display: "block", color: "var(--text-primary)", fontSize: "clamp(1.75rem, 2.8vw, 2.5rem)", fontWeight: 700, lineHeight: 1.15, marginBottom: "1.25rem" }}>
+            <motion.h2 style={{ x: titleX, opacity: titleO }} className="heading">
+              <span style={{
+                display: "block",
+                color: "var(--text-primary)",
+                fontSize: "clamp(3.5rem, 7vw, 10rem)",
+                fontWeight: 700,
+                lineHeight: 1.05,
+                marginBottom: "2rem",
+              }}>
                 Turning complexity<br />into{" "}
                 <span style={{ color: "var(--accent)" }}>clarity</span>.
               </span>
@@ -71,32 +86,51 @@ export default function About() {
                 <span key="neotix">Co-founder of <span style={{ color: "var(--accent)", fontWeight: 500 }}>Neotix AI</span> — building intelligent automation pipelines and conversational AI agents using LLMs and RAG.</span>,
                 "Originally from Panama, trilingual (French, Spanish, English), fuelled by curiosity.",
               ].map((text, i) => (
-                <p key={i} style={{ color: "var(--text-secondary)", fontSize: "clamp(0.8rem, 1.1vw, 0.9rem)", lineHeight: 1.8, marginBottom: "0.75rem" }}>{text}</p>
+                <p key={i} style={{
+                  color: "var(--text-secondary)",
+                  fontSize: "clamp(1.1rem, 1.8vw, 2rem)",
+                  lineHeight: 1.8,
+                  marginBottom: "1.1rem",
+                }}>{text}</p>
               ))}
             </motion.div>
 
             {/* Stats */}
-            <motion.div style={{ y: statsY, opacity: statsO, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "0.5rem", marginTop: "1.5rem" }}>
+            <motion.div style={{ y: statsY, opacity: statsO, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "0.75rem", marginTop: "2rem" }}>
               {stats.map(s => (
-                <div key={s.label} style={{ ...card, padding: "0.75rem 0.5rem", textAlign: "center" }}>
-                  <div style={{ color: "var(--accent)", fontSize: "clamp(1rem, 1.5vw, 1.4rem)", fontWeight: 700, letterSpacing: "-0.03em" }}>{s.value}</div>
-                  <div style={{ color: "var(--text-muted)", fontSize: "0.65rem", marginTop: "0.25rem", lineHeight: 1.3 }}>{s.label}</div>
+                <div key={s.label} style={{ ...card, padding: "1.2rem 0.75rem", textAlign: "center" }}>
+                  <div style={{ color: "var(--accent)", fontSize: "clamp(2rem, 3.5vw, 4.5rem)", fontWeight: 700, letterSpacing: "-0.03em" }}>{s.value}</div>
+                  <div style={{ color: "var(--text-muted)", fontSize: "clamp(0.85rem, 1.1vw, 1.2rem)", marginTop: "0.4rem", lineHeight: 1.3 }}>{s.label}</div>
                 </div>
               ))}
             </motion.div>
           </div>
 
           {/* Right — skills card */}
-          <motion.div style={{ x: skillsX, opacity: skillsO, ...card, padding: "clamp(1rem, 2vw, 1.75rem)" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          <motion.div style={{ x: skillsX, opacity: skillsO, ...card, padding: "clamp(1.5rem, 3vw, 3.5rem)" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.4rem" }}>
               {skills.map(group => (
                 <div key={group.category}>
-                  <div style={{ color: "var(--accent)", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: "0.4rem" }}>
+                  <div style={{
+                    color: "var(--accent)",
+                    fontSize: "clamp(0.75rem, 1vw, 1.1rem)",
+                    fontWeight: 600,
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                    marginBottom: "0.6rem",
+                  }}>
                     {group.category}
                   </div>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
                     {group.items.map(tag => (
-                      <span key={tag} style={{ fontSize: "0.7rem", padding: "0.2rem 0.6rem", borderRadius: "9999px", border: "1px solid rgba(231,236,244,0.1)", color: "var(--text-secondary)", background: "rgba(231,236,244,0.04)" }}>
+                      <span key={tag} style={{
+                        fontSize: "clamp(0.9rem, 1.2vw, 1.3rem)",
+                        padding: "0.35rem 1rem",
+                        borderRadius: "9999px",
+                        border: "1px solid var(--border)",
+                        color: "var(--text-secondary)",
+                        background: "var(--surface-subtle)",
+                      }}>
                         {tag}
                       </span>
                     ))}
@@ -105,6 +139,7 @@ export default function About() {
               ))}
             </div>
           </motion.div>
+
         </div>
       </div>
     </motion.section>

@@ -1,31 +1,73 @@
 @import "tailwindcss";
 
-/* ─── Design tokens ──────────────────────────────────────────────────────────── */
+/* ─── Design tokens (dark, default) ─────────────────────────────────────────── */
 :root {
   /* Backgrounds */
-  --bg:           #090b0f;
-  --bg-secondary: #0d1015;
-  --bg-card:      rgba(16, 20, 28, 0.75);
+  --bg:            #090b0f;
+  --bg-secondary:  #0d1015;
+  --bg-card:       rgba(16, 20, 28, 0.82);
+  --bg-nav:        rgba(9, 11, 15, 0.88);
+  --bg-mobile-menu:rgba(13, 13, 13, 0.97);
 
   /* Borders */
-  --border:       rgba(231, 236, 244, 0.08);
-  --border-strong:rgba(231, 236, 244, 0.14);
+  --border:        rgba(231, 236, 244, 0.08);
+  --border-strong: rgba(231, 236, 244, 0.15);
 
   /* Text */
   --text-primary:  #f5f7fb;
   --text-secondary:#b9c0cb;
   --text-muted:    #8a94a4;
 
-  /* Accent — blue-slate, inspired by mounirammam */
-  --accent:        #7a9abd;
-  --accent-strong: #8eadd0;
-  --accent-dim:    rgba(122, 154, 189, 0.12);
-  --accent-glow:   rgba(122, 154, 189, 0.28);
+  /* Accent — sky blue */
+  --accent:        #38bdf8;
+  --accent-strong: #7dd3fc;
+  --accent-dim:    rgba(56, 189, 248, 0.12);
+  --accent-glow:   rgba(56, 189, 248, 0.30);
+
+  /* Surfaces */
+  --surface-subtle: rgba(231, 236, 244, 0.04);
+  --surface-medium: rgba(231, 236, 244, 0.08);
+
+  /* Grid */
+  --grid-line: rgba(255, 255, 255, 0.038);
+
+  /* Brain glow plate (dark mode) — very bright sky-blue centre fading to page bg */
+  --brain-glow: radial-gradient(circle, rgba(100, 210, 255, 0.60) 0%, rgba(56, 189, 248, 0.28) 38%, rgba(9, 20, 45, 0.75) 58%, transparent 72%);
 
   /* Effects */
   --card-blur:     blur(16px);
   --radius-card:   1.5rem;
   --radius-pill:   9999px;
+}
+
+/* ─── Light theme ────────────────────────────────────────────────────────────── */
+html.light {
+  --bg:            #f0f4f8;
+  --bg-secondary:  #e4eaf1;
+  --bg-card:       rgba(255, 255, 255, 0.88);
+  --bg-nav:        rgba(240, 244, 248, 0.92);
+  --bg-mobile-menu:rgba(248, 250, 252, 0.98);
+
+  --border:        rgba(15, 23, 42, 0.09);
+  --border-strong: rgba(15, 23, 42, 0.16);
+
+  --text-primary:  #0f172a;
+  --text-secondary:#334155;
+  --text-muted:    #64748b;
+
+  /* Darker sky blue for readability on light bg */
+  --accent:        #0284c7;
+  --accent-strong: #0369a1;
+  --accent-dim:    rgba(2, 132, 199, 0.10);
+  --accent-glow:   rgba(2, 132, 199, 0.22);
+
+  --surface-subtle: rgba(0, 0, 0, 0.04);
+  --surface-medium: rgba(0, 0, 0, 0.08);
+
+  --grid-line: rgba(0, 0, 0, 0.055);
+
+  /* Brain glow plate (light mode) */
+  --brain-glow: radial-gradient(circle, rgba(186, 230, 255, 1.0) 0%, rgba(210, 240, 255, 0.65) 40%, transparent 68%);
 }
 
 /* ─── Reset ───────────────────────────────────────────────────────────────────── */
@@ -43,6 +85,7 @@ body {
   color: var(--text-primary);
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   line-height: 1.6;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 /* ─── Selection ───────────────────────────────────────────────────────────────── */
@@ -56,11 +99,11 @@ body {
 ::-webkit-scrollbar-track  { background: transparent; }
 ::-webkit-scrollbar-thumb  { background: var(--border-strong); border-radius: 2px; }
 
-/* ─── Grid background (72px, mounirammam-style) ───────────────────────────────── */
+/* ─── Grid background ─────────────────────────────────────────────────────────── */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 80%);
   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 80%);
@@ -73,20 +116,21 @@ body {
   -webkit-backdrop-filter: var(--card-blur);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
+  transition: background 0.35s ease, border-color 0.3s;
 }
 
 .glass-hover {
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, background 0.35s ease;
 }
 .glass-hover:hover {
   border-color: var(--border-strong);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(122, 154, 189, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18), 0 0 0 1px var(--accent-dim);
   transform: translateY(-2px);
 }
 
 /* ─── Section label ───────────────────────────────────────────────────────────── */
 .section-label {
-  font-size: 0.65rem;
+  font-size: clamp(0.6rem, 0.75vw, 0.7rem);
   font-weight: 600;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -101,13 +145,13 @@ body {
 
 /* ─── Tag chip ────────────────────────────────────────────────────────────────── */
 .tag {
-  font-size: 0.7rem;
+  font-size: clamp(0.65rem, 0.8vw, 0.75rem);
   font-weight: 500;
-  padding: 0.2rem 0.65rem;
+  padding: 0.22rem 0.7rem;
   border-radius: 9999px;
   border: 1px solid var(--border);
   color: var(--text-muted);
-  background: rgba(231, 236, 244, 0.04);
+  background: var(--surface-subtle);
   letter-spacing: 0.01em;
 }
 

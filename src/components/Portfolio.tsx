@@ -7,6 +7,7 @@ import About from "./About";
 import Projects from "./Projects";
 import Experience from "./Experience";
 import Contact from "./Contact";
+import BrainTransition from "./BrainTransition";
 
 export default function Portfolio() {
   return (
@@ -17,6 +18,7 @@ export default function Portfolio() {
       <Projects />
       <Experience />
       <Contact />
+      <BrainTransition />
     </ScrollDriven>
   );
 }

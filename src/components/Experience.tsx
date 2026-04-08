@@ -49,7 +49,7 @@ function ExpCard({ exp, i, off }: { exp: typeof experiences[0]; i: number; off: 
         }}>
         <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
           <div className="flex items-center gap-3 flex-wrap">
-            <span className="text-sm font-semibold heading" style={{ color: "var(--text-primary)" }}>{exp.role}</span>
+            <span className="font-semibold heading" style={{ color: "var(--text-primary)", fontSize: "clamp(1.1rem, 1.5vw, 1.35rem)" }}>{exp.role}</span>
             <span className="tag" style={{ color: exp.accent ? "var(--accent)" : "var(--text-muted)", borderColor: exp.accent ? "var(--accent-glow)" : "var(--border)" }}>{exp.type}</span>
             <span className="text-sm" style={{ color: exp.accent ? "var(--accent)" : "var(--text-secondary)" }}>@ {exp.company}</span>
           </div>
@@ -59,7 +59,7 @@ function ExpCard({ exp, i, off }: { exp: typeof experiences[0]; i: number; off: 
         </div>
         <ul className="space-y-1 mb-3">
           {exp.points.map((pt, j) => (
-            <li key={j} className="flex gap-2 text-xs" style={{ color: "var(--text-secondary)" }}>
+            <li key={j} className="flex gap-2" style={{ color: "var(--text-secondary)", fontSize: "clamp(0.95rem, 1.25vw, 1.15rem)" }}>
               <span style={{ color: "var(--accent)", flexShrink: 0 }}>·</span>{pt}
             </li>
           ))}
@@ -83,9 +83,9 @@ function EduCard({ edu, i, off }: { edu: typeof education[0]; i: number; off: Mo
       <div className="glass p-5" style={{ borderColor: edu.accent ? "var(--accent-glow)" : "var(--border)" }}>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <p className="text-sm font-semibold heading" style={{ color: "var(--text-primary)" }}>{edu.degree}</p>
-            {edu.specialty && <p className="text-xs mt-1" style={{ color: "var(--accent)" }}>{edu.specialty}</p>}
-            <p className="text-sm mt-1" style={{ color: "var(--text-secondary)" }}>{edu.institution}</p>
+            <p className="font-semibold heading" style={{ color: "var(--text-primary)", fontSize: "clamp(1.1rem, 1.5vw, 1.35rem)" }}>{edu.degree}</p>
+            {edu.specialty && <p className="mt-1" style={{ color: "var(--accent)", fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)" }}>{edu.specialty}</p>}
+            <p className="mt-1" style={{ color: "var(--text-secondary)", fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)" }}>{edu.institution}</p>
           </div>
           <div className="text-right" style={{ color: "var(--text-muted)", fontSize: "0.75rem" }}>
             <div>{edu.period}</div><div>{edu.location}</div>
@@ -105,7 +105,7 @@ function LangCard({ off }: { off: MotionValue<number> }) {
         <div className="flex flex-wrap gap-3">
           {[{ l: "French", lv: "Native" }, { l: "Spanish", lv: "Native" }, { l: "English", lv: "Professional" }].map(item => (
             <div key={item.l} className="flex items-center gap-2 px-3 py-2 rounded-xl"
-              style={{ background: "rgba(231,236,244,0.04)", border: "1px solid var(--border)" }}>
+              style={{ background: "var(--surface-subtle)", border: "1px solid var(--border)" }}>
               <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{item.l}</span>
               <span className="text-xs" style={{ color: "var(--text-muted)" }}>{item.lv}</span>
             </div>
@@ -127,12 +127,12 @@ export default function Experience() {
   return (
     <motion.section style={{ opacity: sectionO }} className="absolute inset-0 overflow-y-auto">
       <div className="absolute inset-0 grid-bg pointer-events-none" />
-      <div style={{ minHeight: "100%", display: "flex", alignItems: "center", padding: "4.5rem 2rem" }}>
-      <div style={{ width: "100%", maxWidth: "64rem", margin: "0 auto" }} className="relative z-10">
+      <div style={{ minHeight: "100%", display: "flex", alignItems: "center", padding: "clamp(3rem, 6vh, 5rem) clamp(1.2rem, 2.5vw, 3rem)" }}>
+      <div style={{ width: "100%", maxWidth: "min(97vw, 1700px)", margin: "0 auto" }} className="relative z-10">
         <motion.div style={{ x: headerX, opacity: headerO }} className="flex items-end justify-between mb-10 flex-wrap gap-4">
           <div>
             <div className="section-label mb-3">03 — Experience</div>
-            <h2 className="text-3xl md:text-4xl font-bold heading">
+            <h2 className="font-bold heading" style={{ fontSize: "clamp(2.8rem, 5.5vw, 5rem)" }}>
               <span style={{ color: "var(--text-primary)" }}>Where I&apos;ve </span>
               <span style={{ color: "var(--accent)" }}>worked</span>
             </h2>
