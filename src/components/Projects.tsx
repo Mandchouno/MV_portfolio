@@ -5,11 +5,11 @@ import { useState } from "react";
 import { useSectionOffset } from "./ScrollDriven";
 
 const projects = [
-  { id: "01", title: "PL Prediction",       subtitle: "Premier League",        year: "2025", tags: ["Python", "GCN", "Bayes"],      desc: "Predicts Premier League standings using FNN, Bayesian classifiers, and Graph Convolutional Networks.", github: "https://github.com/Mandchouno/PL-prediction-db" },
+  { id: "01", title: "PL Prediction",       subtitle: "Premier League",        year: "2025", tags: ["Python", "GCN", "Bayes"],      desc: "Predicts Premier League standings using FNN, Bayesian classifiers, and Graph Convolutional Networks.", github: "https://github.com/TokamLilian/PL-prediction-db" },
   { id: "02", title: "Chatbot Finance",     subtitle: "Copilote IA Financier",  year: "2025", tags: ["FastAPI", "RAG", "LangChain"], desc: "Educational finance chatbot combining semantic search (RAG), intent detection, and financial calculators.", github: "https://github.com/Mandchouno/Chatbot_Finance" },
-  { id: "03", title: "Text Classification", subtitle: "Kaggle IFT3395/6390",   year: "2024", tags: ["Scikit-learn", "SVM", "NLP"],   desc: "Binary text classification on imbalanced datasets. Lemmatization, Mann-Whitney selection, Bayesian optimization.", github: "https://github.com/Mandchouno/Kaggle_Text_Classification" },
-  { id: "04", title: "La Liga Prediction",  subtitle: "Match Outcomes",         year: "2025", tags: ["Python", "ML", "Pandas"],       desc: "La Liga match outcome prediction with multiple ML models. Full data pipeline from collection to evaluation.", github: "https://github.com/Mandchouno/La-Liga-Prediction" },
-  { id: "05", title: "UniShop",             subtitle: "Student Marketplace",    year: "2023", tags: ["Java", "OOP", "JUnit"],         desc: "OOP marketplace for students to buy/sell academic items. Separate roles, orders, metrics, JSON persistence.", github: "https://github.com/Mandchouno/UniShop" },
+  { id: "03", title: "Text Classification", subtitle: "Kaggle IFT3395/6390",   year: "2024", tags: ["Scikit-learn", "SVM", "NLP"],   desc: "Binary text classification on imbalanced datasets. Lemmatization, Mann-Whitney selection, Bayesian optimization.", github: "https://github.com/Mandchouno/Kaggle_ML_classification-de-texte" },
+  { id: "04", title: "La Liga Prediction",  subtitle: "Match Outcomes",         year: "2025", tags: ["Python", "ML", "Pandas"],       desc: "La Liga match outcome prediction with multiple ML models. Full data pipeline from collection to evaluation.", github: "https://github.com/Mandchouno/Laliga-prediction" },
+  { id: "05", title: "UniShop",             subtitle: "Student Marketplace",    year: "2023", tags: ["Java", "OOP", "JUnit"],         desc: "OOP marketplace for students to buy/sell academic items. Separate roles, orders, metrics, JSON persistence.", github: "https://github.com/medinammartin3/UniShop" },
 ];
 
 const origins = [

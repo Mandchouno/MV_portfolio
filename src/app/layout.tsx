@@ -9,13 +9,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Mandi Téo Vigier — Data Scientist & AI Builder",
+  title: "Mandi Téo Vigier — Data Scientist & AI Engineer",
   description:
-    "Portfolio of Mandi Téo Vigier — Data Science student, Co-founder of Neotix AI. Building AI solutions and turning data into actionable insights.",
+    "Portfolio of Mandi Téo Vigier — Data Science, Co-founder of Neotix AI. Building AI solutions and turning data into actionable insights.",
   keywords: ["Data Science", "Machine Learning", "AI", "Portfolio", "Mandi Vigier"],
   openGraph: {
-    title: "Mandi Téo Vigier — Data Scientist & AI Builder",
-    description: "Portfolio of Mandi Téo Vigier — Data Science student & AI builder based in Montréal.",
+    title: "Mandi Téo Vigier — Data Scientist & AI Engineer",
+    description: "Portfolio of Mandi Téo Vigier — Data Science & AI Engineer based in Montréal.",
     type: "website",
   },
 };

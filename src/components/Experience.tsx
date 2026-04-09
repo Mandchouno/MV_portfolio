@@ -7,30 +7,30 @@ import { useSectionOffset } from "./ScrollDriven";
 const experiences = [
   {
     role: "Co-founder", company: "Neotix AI",
-    period: "Jan 2026 – Present", location: "Montréal, QC", type: "Full-time",
-    points: ["AI-driven automation & conversational agents for business use cases.", "Workflow automations integrating AI services and external APIs.", "Prototyped web AI products and coordinated early-stage client dev."],
-    tools: ["LangChain", "LangGraph", "n8n", "Make", "Retell AI", "ElevenLabs", "RAG"],
+    period: "Jan 2026 – Apr 2026", location: "Montréal, QC", type: "Full-time",
+    points: ["AI-driven automation & conversational agents for business use cases.", "Workflow automations integrating AI services and external APIs.", "Prototyped web-based AI products and coordinated early-stage product and client development.", "Applied practical machine learning concepts to real-world data and automation pipelines."],
+    tools: ["LangChain", "LangGraph", "n8n", "Make", "Retell AI", "ElevenLabs", "Python", "LLMs (Large Language Model)", "RAG (Retrieval-Augmented Generation)"],
     accent: true, fromX: -160,
   },
   {
     role: "Development Assistant", company: "Neuralytic",
     period: "Apr – Jul 2023", location: "Panama City, Panama", type: "Internship",
-    points: ["ML algorithm development — Deep Learning specialization.", "Coordinated client meetings and supported business development.", "Designed and prototyped a web/mobile app using Figma."],
+    points: ["ML algorithm development (Deep Learning specialization).", "Coordinated client meetings and supported business development.", "Designed and prototyped a web/mobile app using Figma."],
     tools: ["Python", "TensorFlow", "PyTorch", "Figma", "MLOps"],
     accent: false, fromX: 160,
   },
   {
     role: "Web Catalog Clerk", company: "UAP Heavy-Duty Vehicle Parts",
     period: "May – Aug 2024", location: "Montréal, QC", type: "Seasonal",
-    points: ["Standardized and cleaned product data for e-commerce integration.", "Prepared large-scale Excel datasets for automated import workflows."],
-    tools: ["Excel", "VBA", "Data Management"],
+    points: ["Standardized and cleaned product data for e-commerce integration.", "Prepared large-scale Excel datasets for automated import workflows.", "Supported the marketing team with data organization and operational tasks."],
+    tools: ["Microsoft Excel advanced formulas", "VBA", "Data Management"],
     accent: false, fromX: -120,
   },
 ];
 
 const education = [
   { degree: "B.Sc. — Bidisciplinary Mathematics & Computer Science", specialty: "Data Science Specialization", institution: "Université de Montréal", period: "Jan 2022 – Dec 2025", location: "Montréal, QC", accent: true, fromX: -140 },
-  { degree: "French Baccalaureate", specialty: "", institution: "Lycée International de Panama", period: "2008 – 2022", location: "Panama City, Panama", accent: false, fromX: 140 },
+  { degree: "French Baccalaureate", specialty: "Mathematics", institution: "Lycée International de Panama", period: "2008 – 2022", location: "Panama City, Panama", accent: false, fromX: 140 },
 ];
 
 function ExpCard({ exp, i, off }: { exp: typeof experiences[0]; i: number; off: MotionValue<number> }) {

@@ -4,10 +4,10 @@ import { motion, useTransform } from "framer-motion";
 import { useSectionOffset } from "./ScrollDriven";
 
 const skills = [
-  { category: "Languages",     items: ["Python", "Java", "JavaScript", "TypeScript", "HTML/CSS"] },
-  { category: "ML / AI",       items: ["Scikit-learn", "TensorFlow", "PyTorch", "XGBoost", "LangChain"] },
-  { category: "AI Automation", items: ["n8n", "Make", "Retell AI", "ElevenLabs", "RAG", "LLMs"] },
-  { category: "Data",          items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly"] },
+  { category: "Languages",     items: ["Python", "Java", "JavaScript", "HTML/CSS"] },
+  { category: "Frameworks/ Libraries",       items: ["NumPy", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn","TensorFlow", "PyTorch", "XGBoost", "LangChain", "LangGraph" ] },
+  { category: "Tools/ Platforms", items: ["Git", "GitHub", "Figma", "Docker", "VSCode", "R", "SAS", "MATLAB", "Microsoft Office (Word, Excel, PowerPoint, Outlook)", "Rstudio", "MLflow", "MLOps"] },
+  { category: "Workflows Automatisation",          items: ["Make", "N8N", "ElevenLabs", "Retell AI"] },
   { category: "Tools",         items: ["Git", "Docker", "Figma", "MLflow", "R", "MATLAB"] },
 ];
 
@@ -83,8 +83,8 @@ export default function About() {
             <motion.div style={{ x: bioX, opacity: bioO }}>
               {[
                 "Data Science student at Université de Montréal, passionate about ML, AI automation, and data-driven problem solving.",
-                <span key="neotix">Co-founder of <span style={{ color: "var(--accent)", fontWeight: 500 }}>Neotix AI</span> — building intelligent automation pipelines and conversational AI agents using LLMs and RAG.</span>,
-                "Originally from Panama, trilingual (French, Spanish, English), fuelled by curiosity.",
+                <span key="neotix"> <span style={{ color: "var(--accent)", fontWeight: 500 }}>Neuralytic</span> — building data & AI systems across telecoms, finance, energy and retail sectors.</span>,
+                "Originally from France, growing in Panama, trilingual (French, Spanish, English), fuelled by curiosity, experiences and water sports .",
               ].map((text, i) => (
                 <p key={i} style={{
                   color: "var(--text-secondary)",

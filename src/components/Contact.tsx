@@ -4,6 +4,7 @@ import { motion, useTransform, MotionValue } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useSectionOffset } from "./ScrollDriven";
 
+
 function Clock() {
   const [time, setTime] = useState("");
   useEffect(() => {

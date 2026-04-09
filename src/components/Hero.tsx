@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, useTransform } from "framer-motion";
 import { useSectionOffset } from "./ScrollDriven";
 
-const roles = ["Data Scientist", "AI Builder", "ML Engineer", "Co-founder @ Neotix AI"];
+const roles = ["Data Scientist", "AI Automation", "ML Engineer", "AI Systems Architect"];
 
 export default function Hero() {
   const off = useSectionOffset(0);
@@ -54,23 +54,14 @@ export default function Hero() {
 
       <div className="relative z-10 text-center" style={{ padding: "0 8vw clamp(4rem, 10vh, 8rem)" }}>
 
-        {/* Badge */}
-        <motion.div style={{ y: badgeY, opacity: badgeO }} className="mb-4">
-          <span className="inline-flex items-center gap-2 rounded-full border"
-            style={{ color: "var(--accent)", borderColor: "var(--accent-glow)", background: "var(--accent-dim)", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", padding: "0.35rem 1rem" }}>
-            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 8px var(--accent)", animation: "pulse 2s ease-in-out infinite", flexShrink: 0, display: "inline-block" }} />
-            Open to opportunities
-          </span>
-        </motion.div>
-
         {/* Title */}
         <motion.h1
           style={{ y: titleY, opacity: titleO, scale: titleScale, fontSize: "clamp(1.8rem, 3.5vw, 3.5rem)", marginBottom: "0.9rem" }}
           className="font-bold heading"
         >
-          <span style={{ color: "var(--text-primary)", display: "block" }}>The online home of</span>
-          <span style={{ color: "var(--accent)" }}>Mandi&apos;s</span>
-          <span style={{ color: "var(--text-primary)" }}> work.</span>
+          <span style={{ color: "var(--text-primary)", display: "block" }}>Mandi Vigier's</span>
+          <span style={{ color: "var(--accent)" }}>Portfolio&apos;s</span>
+          <span style={{ color: "var(--text-primary)" }}>.</span>
         </motion.h1>
 
         {/* Typewriter */}
