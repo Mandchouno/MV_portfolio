@@ -54,7 +54,7 @@ export default function About() {
     >
       <div className="absolute inset-0 grid-bg pointer-events-none" />
 
-      <div style={{ width: "100%", maxWidth: "99vw", position: "relative", zIndex: 1 }}>
+      <div style={{ width: "100%", maxWidth: "min(96vw, 1600px)", position: "relative", zIndex: 1 }}>
 
         {/* Label */}
         <motion.div style={{ x: labelX, opacity: labelO }} className="mb-6">
@@ -70,10 +70,10 @@ export default function About() {
               <span style={{
                 display: "block",
                 color: "var(--text-primary)",
-                fontSize: "clamp(3.5rem, 7vw, 10rem)",
+                fontSize: "clamp(1.8rem, 3.2vw, 3rem)",
                 fontWeight: 700,
-                lineHeight: 1.05,
-                marginBottom: "2rem",
+                lineHeight: 1.15,
+                marginBottom: "1.5rem",
               }}>
                 Turning complexity<br />into{" "}
                 <span style={{ color: "var(--accent)" }}>clarity</span>.
@@ -88,9 +88,9 @@ export default function About() {
               ].map((text, i) => (
                 <p key={i} style={{
                   color: "var(--text-secondary)",
-                  fontSize: "clamp(1.1rem, 1.8vw, 2rem)",
-                  lineHeight: 1.8,
-                  marginBottom: "1.1rem",
+                  fontSize: "clamp(0.88rem, 1.1vw, 1rem)",
+                  lineHeight: 1.75,
+                  marginBottom: "0.9rem",
                 }}>{text}</p>
               ))}
             </motion.div>
@@ -99,8 +99,8 @@ export default function About() {
             <motion.div style={{ y: statsY, opacity: statsO, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "0.75rem", marginTop: "2rem" }}>
               {stats.map(s => (
                 <div key={s.label} style={{ ...card, padding: "1.2rem 0.75rem", textAlign: "center" }}>
-                  <div style={{ color: "var(--accent)", fontSize: "clamp(2rem, 3.5vw, 4.5rem)", fontWeight: 700, letterSpacing: "-0.03em" }}>{s.value}</div>
-                  <div style={{ color: "var(--text-muted)", fontSize: "clamp(0.85rem, 1.1vw, 1.2rem)", marginTop: "0.4rem", lineHeight: 1.3 }}>{s.label}</div>
+                  <div style={{ color: "var(--accent)", fontSize: "clamp(1.4rem, 2vw, 1.9rem)", fontWeight: 700, letterSpacing: "-0.03em" }}>{s.value}</div>
+                  <div style={{ color: "var(--text-muted)", fontSize: "clamp(0.72rem, 0.9vw, 0.88rem)", marginTop: "0.3rem", lineHeight: 1.3 }}>{s.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -124,7 +124,7 @@ export default function About() {
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
                     {group.items.map(tag => (
                       <span key={tag} style={{
-                        fontSize: "clamp(0.9rem, 1.2vw, 1.3rem)",
+                        fontSize: "clamp(0.78rem, 1vw, 0.95rem)",
                         padding: "0.35rem 1rem",
                         borderRadius: "9999px",
                         border: "1px solid var(--border)",

@@ -78,14 +78,14 @@ export default function Navigation() {
         <div style={{
           display: "flex",
           alignItems: "center",
-          gap: "clamp(1.4rem, 3vw, 4rem)",
-          padding: "0 clamp(2.5rem, 5vw, 6rem)",
-          height: "clamp(4.5rem, 7vh, 6.5rem)",
+          gap: "clamp(0.8rem, 2vw, 2.5rem)",
+          padding: "0 clamp(1.4rem, 3vw, 3.5rem)",
+          height: "clamp(3rem, 5.5vh, 4.5rem)",
         }}>
           {/* Logo */}
           <button
             onClick={() => goTo(0)}
-            style={{ color: "var(--text-muted)", letterSpacing: "0.18em", fontSize: "clamp(1.1rem, 1.6vw, 1.6rem)", fontFamily: "ui-monospace, monospace", fontWeight: 700, textTransform: "uppercase", marginRight: "clamp(0.6rem, 1.2vw, 1.5rem)" }}
+            style={{ color: "var(--text-muted)", letterSpacing: "0.18em", fontSize: "clamp(0.85rem, 1.1vw, 1.1rem)", fontFamily: "ui-monospace, monospace", fontWeight: 700, textTransform: "uppercase", marginRight: "clamp(0.4rem, 0.8vw, 1rem)" }}
           >
             MTV
           </button>
@@ -99,7 +99,7 @@ export default function Navigation() {
                   key={link.label}
                   onClick={() => goTo(link.index)}
                   className="relative transition-colors duration-200"
-                  style={{ color: isActive ? "var(--accent)" : "var(--text-muted)", fontSize: "clamp(1.1rem, 1.6vw, 1.6rem)", letterSpacing: "0.02em" }}
+                  style={{ color: isActive ? "var(--accent)" : "var(--text-muted)", fontSize: "clamp(0.82rem, 1vw, 1rem)", letterSpacing: "0.02em" }}
                 >
                   {link.label}
                   {isActive && (
@@ -123,7 +123,7 @@ export default function Navigation() {
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex transition-all duration-200"
-            style={{ color: "var(--accent)", fontSize: "clamp(1rem, 1.4vw, 1.4rem)", padding: "0.45rem 1.4rem", borderRadius: "9999px", border: "1px solid var(--accent-glow)" }}
+            style={{ color: "var(--accent)", fontSize: "clamp(0.78rem, 1vw, 0.95rem)", padding: "0.35rem 1rem", borderRadius: "9999px", border: "1px solid var(--accent-glow)" }}
             onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = "var(--accent-dim)")}
             onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = "transparent")}
           >
@@ -134,7 +134,7 @@ export default function Navigation() {
           <button
             onClick={toggleTheme}
             title={theme === "dark" ? "Light mode" : "Dark mode"}
-            style={{ color: "var(--text-muted)", display: "flex", alignItems: "center", justifyContent: "center", width: "3rem", height: "3rem", borderRadius: "50%", border: "1px solid var(--border)", flexShrink: 0 }}
+            style={{ color: "var(--text-muted)", display: "flex", alignItems: "center", justifyContent: "center", width: "2.2rem", height: "2.2rem", borderRadius: "50%", border: "1px solid var(--border)", flexShrink: 0 }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--accent)"; el.style.borderColor = "var(--accent-glow)"; }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--text-muted)"; el.style.borderColor = "var(--border)"; }}
           >

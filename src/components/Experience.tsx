@@ -50,7 +50,7 @@ function ExpCard({ exp, i, off }: { exp: typeof experiences[0]; i: number; off: 
         {/* Header */}
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem", marginBottom: "clamp(0.9rem, 1.8vh, 1.8rem)" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "clamp(0.6rem, 1.2vw, 1.2rem)", flexWrap: "wrap" }}>
-            <span className="font-semibold heading" style={{ color: "var(--text-primary)", fontSize: "clamp(1.4rem, 2.5vw, 2.8rem)" }}>{exp.role}</span>
+            <span className="font-semibold heading" style={{ color: "var(--text-primary)", fontSize: "clamp(1.05rem, 1.5vw, 1.4rem)" }}>{exp.role}</span>
             <span style={{
               fontSize: "clamp(0.75rem, 1vw, 1rem)", fontWeight: 500,
               padding: "0.25rem 0.85rem", borderRadius: "9999px",
@@ -58,7 +58,7 @@ function ExpCard({ exp, i, off }: { exp: typeof experiences[0]; i: number; off: 
               color: exp.accent ? "var(--accent)" : "var(--text-muted)",
               background: exp.accent ? "var(--accent-dim)" : "var(--surface-subtle)",
             }}>{exp.type}</span>
-            <span style={{ color: exp.accent ? "var(--accent)" : "var(--text-secondary)", fontSize: "clamp(1.1rem, 1.8vw, 2rem)" }}>@ {exp.company}</span>
+            <span style={{ color: exp.accent ? "var(--accent)" : "var(--text-secondary)", fontSize: "clamp(0.95rem, 1.3vw, 1.2rem)" }}>@ {exp.company}</span>
           </div>
           <div style={{ textAlign: "right", color: "var(--text-muted)", fontSize: "clamp(0.85rem, 1.1vw, 1.1rem)", flexShrink: 0 }}>
             <div>{exp.period}</div>
@@ -69,7 +69,7 @@ function ExpCard({ exp, i, off }: { exp: typeof experiences[0]; i: number; off: 
         {/* Bullet points */}
         <ul style={{ display: "flex", flexDirection: "column", gap: "clamp(0.4rem, 0.8vh, 0.8rem)", marginBottom: "clamp(0.9rem, 1.8vh, 1.8rem)" }}>
           {exp.points.map((pt, j) => (
-            <li key={j} style={{ display: "flex", gap: "0.75rem", color: "var(--text-secondary)", fontSize: "clamp(1rem, 1.5vw, 1.7rem)", lineHeight: 1.7 }}>
+            <li key={j} style={{ display: "flex", gap: "0.75rem", color: "var(--text-secondary)", fontSize: "clamp(0.85rem, 1.05vw, 1rem)", lineHeight: 1.65 }}>
               <span style={{ color: "var(--accent)", flexShrink: 0, marginTop: "0.1em" }}>·</span>{pt}
             </li>
           ))}
@@ -108,9 +108,9 @@ function EduCard({ edu, i, off }: { edu: typeof education[0]; i: number; off: Mo
       }}>
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "space-between", gap: "1.5rem" }}>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <p className="font-semibold heading" style={{ color: "var(--text-primary)", fontSize: "clamp(1.4rem, 2.5vw, 2.8rem)" }}>{edu.degree}</p>
-            {edu.specialty && <p style={{ color: "var(--accent)", fontSize: "clamp(1.1rem, 1.8vw, 2rem)", marginTop: "0.6rem" }}>{edu.specialty}</p>}
-            <p style={{ color: "var(--text-secondary)", fontSize: "clamp(1.05rem, 1.6vw, 1.8rem)", marginTop: "0.5rem" }}>{edu.institution}</p>
+            <p className="font-semibold heading" style={{ color: "var(--text-primary)", fontSize: "clamp(1.05rem, 1.5vw, 1.4rem)" }}>{edu.degree}</p>
+            {edu.specialty && <p style={{ color: "var(--accent)", fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)", marginTop: "0.4rem" }}>{edu.specialty}</p>}
+            <p style={{ color: "var(--text-secondary)", fontSize: "clamp(0.85rem, 1.05vw, 1rem)", marginTop: "0.35rem" }}>{edu.institution}</p>
           </div>
           <div style={{ textAlign: "right", color: "var(--text-muted)", fontSize: "clamp(0.85rem, 1.1vw, 1.1rem)", flexShrink: 0 }}>
             <div>{edu.period}</div>
@@ -159,11 +159,11 @@ export default function Experience() {
     <motion.section style={{ opacity: sectionO }} className="absolute inset-0 overflow-y-auto">
       <div className="absolute inset-0 grid-bg pointer-events-none" />
       <div style={{ minHeight: "100%", display: "flex", alignItems: "center", padding: "clamp(3rem, 6vh, 5rem) clamp(1.2rem, 2.5vw, 3rem)" }}>
-      <div style={{ width: "100%", maxWidth: "min(97vw, 1700px)", margin: "0 auto" }} className="relative z-10">
+      <div style={{ width: "100%", maxWidth: "min(96vw, 1600px)", margin: "0 auto" }} className="relative z-10">
         <motion.div style={{ x: headerX, opacity: headerO }} className="flex items-end justify-between mb-10 flex-wrap gap-4">
           <div>
             <div className="section-label mb-3">03 — Experience</div>
-            <h2 className="font-bold heading" style={{ fontSize: "clamp(2.8rem, 5.5vw, 5rem)" }}>
+            <h2 className="font-bold heading" style={{ fontSize: "clamp(1.8rem, 3.2vw, 3rem)" }}>
               <span style={{ color: "var(--text-primary)" }}>Where I&apos;ve </span>
               <span style={{ color: "var(--accent)" }}>worked</span>
             </h2>

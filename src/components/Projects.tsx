@@ -58,9 +58,9 @@ function ProjectCard({ p, i, off }: { p: typeof projects[0]; i: number; off: Mot
             <h3 className="font-semibold heading" style={{
               color: "var(--text-primary)",
               letterSpacing: "-0.02em",
-              fontSize: "clamp(1.4rem, 2.5vw, 3rem)",
+              fontSize: "clamp(1.1rem, 1.6vw, 1.5rem)",
             }}>{p.title}</h3>
-            <p style={{ color: "var(--text-muted)", fontSize: "clamp(1rem, 1.5vw, 1.7rem)", marginTop: "0.4rem" }}>{p.subtitle}</p>
+            <p style={{ color: "var(--text-muted)", fontSize: "clamp(0.8rem, 1vw, 1rem)", marginTop: "0.3rem" }}>{p.subtitle}</p>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexShrink: 0, marginTop: "0.25rem" }}>
             <span style={{ color: "var(--text-muted)", fontSize: "clamp(0.85rem, 1.1vw, 1.1rem)" }}>{p.year}</span>
@@ -84,8 +84,8 @@ function ProjectCard({ p, i, off }: { p: typeof projects[0]; i: number; off: Mot
         {/* Description */}
         <p style={{
           color: "var(--text-secondary)",
-          fontSize: "clamp(1rem, 1.5vw, 1.7rem)",
-          lineHeight: 1.75,
+          fontSize: "clamp(0.82rem, 1vw, 0.95rem)",
+          lineHeight: 1.7,
           flex: 1,
         }}>{p.desc}</p>
 
@@ -117,12 +117,12 @@ export default function Projects() {
     <motion.section style={{ opacity: sectionO }} className="absolute inset-0 overflow-y-auto">
       <div className="absolute inset-0 grid-bg pointer-events-none" />
       <div style={{ minHeight: "100%", display: "flex", alignItems: "center", padding: "5vh 2.5vw 2vh" }}>
-      <div style={{ width: "100%", maxWidth: "99vw", margin: "0 auto" }} className="relative z-10">
+      <div style={{ width: "100%", maxWidth: "min(96vw, 1600px)", margin: "0 auto" }} className="relative z-10">
 
         <motion.div style={{ x: headerX, opacity: headerO }} className="flex items-end justify-between flex-wrap gap-3">
           <div style={{ marginBottom: "clamp(1.5rem, 3vh, 3rem)" }}>
             <div className="section-label" style={{ fontSize: "clamp(0.75rem, 1vw, 1rem)", marginBottom: "0.75rem" }}>02 — Work</div>
-            <h2 className="font-bold heading" style={{ fontSize: "clamp(3.5rem, 7vw, 10rem)" }}>
+            <h2 className="font-bold heading" style={{ fontSize: "clamp(1.8rem, 3.2vw, 3rem)" }}>
               <span style={{ color: "var(--text-primary)" }}>Selected </span>
               <span style={{ color: "var(--accent)" }}>projects</span>
             </h2>

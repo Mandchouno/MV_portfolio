@@ -54,8 +54,8 @@ function SocialLink({ icon, label, handle, href, accent, off, delay }: {
       }}>
         {/* Icon badge */}
         <div style={{
-          width: "clamp(2.6rem, 4.5vw, 5rem)",
-          height: "clamp(2.6rem, 4.5vw, 5rem)",
+          width: "clamp(2rem, 2.8vw, 2.8rem)",
+          height: "clamp(2rem, 2.8vw, 2.8rem)",
           borderRadius: "0.85rem",
           display: "flex", alignItems: "center", justifyContent: "center",
           flexShrink: 0,
@@ -79,12 +79,12 @@ function SocialLink({ icon, label, handle, href, accent, off, delay }: {
           }}>{label}</div>
           <div style={{
             color: accent ? "var(--accent)" : "var(--text-primary)",
-            fontSize: "clamp(1rem, 1.8vw, 2rem)",
+            fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)",
             fontWeight: 500,
-            marginTop: "0.25rem",
+            marginTop: "0.2rem",
           }}>{handle}</div>
         </div>
-        <span style={{ color: accent ? "var(--accent)" : "var(--text-muted)", fontSize: "clamp(1rem, 1.8vw, 2rem)" }}>↗</span>
+        <span style={{ color: accent ? "var(--accent)" : "var(--text-muted)", fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)" }}>↗</span>
       </div>
     </motion.a>
   );
@@ -135,7 +135,7 @@ export default function Contact() {
               04 — Contact
             </div>
             <motion.h2
-              style={{ x: titleX, opacity: titleO, fontSize: "clamp(2.2rem, 4vw, 5rem)" }}
+              style={{ x: titleX, opacity: titleO, fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}
               className="font-bold mb-5 heading"
             >
               <span style={{ color: "var(--text-primary)", display: "block" }}>
@@ -184,7 +184,7 @@ export default function Contact() {
                 }}>@</div>
                 <div style={{ flex: 1 }}>
                   <div style={{ color: "var(--accent)", fontSize: "clamp(0.6rem, 0.8vw, 0.85rem)", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase" }}>Email</div>
-                  <div style={{ color: "var(--text-primary)", fontSize: "clamp(1rem, 1.8vw, 2rem)", fontWeight: 500, marginTop: "0.25rem" }}>mandi.vigier@gmail.com</div>
+                  <div style={{ color: "var(--text-primary)", fontSize: "clamp(0.9rem, 1.2vw, 1.1rem)", fontWeight: 500, marginTop: "0.2rem" }}>mandi.vigier@gmail.com</div>
                 </div>
                 <span style={{ color: "var(--accent)", fontSize: "clamp(0.85rem, 1.2vw, 1.3rem)" }}>
                   {copied ? "Copied ✓" : "Copy →"}
