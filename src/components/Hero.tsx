@@ -93,7 +93,7 @@ export default function Hero() {
 
         {/* Buttons */}
         <motion.div style={{ y: btnY, opacity: btnO, gap: "clamp(0.8rem, 1.5vw, 1.8rem)" }} className="flex flex-wrap justify-center">
-          <a href="/MV_CV_.pdf" target="_blank" rel="noopener noreferrer"
+          <a href="/MV_portfolio/MV_CV_.pdf" target="_blank" rel="noopener noreferrer"
             className="rounded-full font-semibold transition-all duration-300 inline-block"
             style={{ background: "var(--accent)", color: "#090b0f", fontSize: "clamp(1.1rem, 2vw, 2.2rem)", padding: "clamp(0.85rem, 1.8vh, 1.6rem) clamp(2rem, 4vw, 4.5rem)" }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = "var(--accent-strong)"; el.style.transform = "translateY(-2px)"; el.style.boxShadow = "0 12px 36px var(--accent-glow)"; }}

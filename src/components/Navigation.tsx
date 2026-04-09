@@ -119,7 +119,7 @@ export default function Navigation() {
 
           {/* CV link */}
           <a
-            href="/MV_CV_.pdf"
+            href="/MV_portfolio/MV_CV_.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex transition-all duration-200"
@@ -190,7 +190,7 @@ export default function Navigation() {
               </button>
             ))}
             <div style={{ height: "1px", background: "var(--border)", margin: "0.5rem 0" }} />
-            <a href="/MV_CV_.pdf" target="_blank" rel="noopener noreferrer"
+            <a href="/MV_portfolio/MV_CV_.pdf" target="_blank" rel="noopener noreferrer"
               className="block px-4 py-2.5 rounded-xl"
               style={{ color: "var(--accent)", fontSize: "0.88rem" }}>
               Download CV →
