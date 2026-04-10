@@ -108,7 +108,7 @@ function ProjectCard({ p, i, off }: { p: typeof projects[0]; i: number; off: Mot
 }
 
 export default function Projects() {
-  const off = useSectionOffset(2);
+  const off = useSectionOffset(3);
   const sectionO = useTransform(off, [-0.7, -0.2, 0, 0.4, 0.7], [0, 1, 1, 1, 0]);
   const headerX  = useTransform(off, [-0.5, 0, 0.5], [-80, 0, 50]);
   const headerO  = useTransform(off, [-0.5, -0.1, 0, 0.4, 0.65], [0, 1, 1, 1, 0]);
@@ -121,7 +121,7 @@ export default function Projects() {
 
         <motion.div style={{ x: headerX, opacity: headerO }} className="flex items-end justify-between flex-wrap gap-3">
           <div style={{ marginBottom: "clamp(1.5rem, 3vh, 3rem)" }}>
-            <div className="section-label" style={{ fontSize: "clamp(0.75rem, 1vw, 1rem)", marginBottom: "0.75rem" }}>02 — Work</div>
+            <div className="section-label" style={{ fontSize: "clamp(0.75rem, 1vw, 1rem)", marginBottom: "0.75rem" }}>03 — Work</div>
             <h2 className="font-bold heading" style={{ fontSize: "clamp(1.8rem, 3.2vw, 3rem)" }}>
               <span style={{ color: "var(--text-primary)" }}>Selected </span>
               <span style={{ color: "var(--accent)" }}>projects</span>

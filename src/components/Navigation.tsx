@@ -7,8 +7,8 @@ import { useProgress } from "./ScrollDriven";
 const navLinks = [
   { label: "Index",      index: 0 },
   { label: "About",      index: 1 },
-  { label: "Work",       index: 2 },
-  { label: "Experience", index: 3 },
+  { label: "Experience", index: 2 },
+  { label: "Work",       index: 3 },
   { label: "Contact",    index: 4 },
 ];
 

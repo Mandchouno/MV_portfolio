@@ -15,8 +15,8 @@ export default function Portfolio() {
       <Navigation />
       <Hero />
       <About />
-      <Projects />
       <Experience />
+      <Projects />
       <Contact />
       <BrainTransition />
     </ScrollDriven>
