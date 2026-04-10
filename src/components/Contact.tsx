@@ -153,14 +153,14 @@ export default function Contact() {
       <div
         className="relative z-10"
         style={{
-          padding: "0 2.5vw clamp(2.5rem, 6vh, 5rem)",
+          padding: "0 clamp(1.5rem, 4vw, 5rem) clamp(2.5rem, 6vh, 5rem)",
           maxWidth: "min(96vw, 1400px)",
           width: "100%",
           marginLeft: "auto",
           marginRight: "auto",
         }}
       >
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(2rem, 5vw, 6rem)", alignItems: "end" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 0.5fr", gap: "clamp(1rem, 3vw, 4rem)", alignItems: "end" }}>
 
           {/* ── Left column ────────────────────────────────────────────── */}
           <div>
@@ -224,7 +224,7 @@ export default function Contact() {
           </div>
 
           {/* ── Right column — social links ─────────────────────────── */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", marginLeft: "auto", width: "100%" }}>
             {links.map((link, i) => (
               <SocialLink key={link.label} {...link} off={off} delay={i * 0.06} />
             ))}
