@@ -136,9 +136,9 @@ export default function Navigation() {
           <button
             onClick={toggleTheme}
             title={theme === "dark" ? "Light mode" : "Dark mode"}
-            style={{ color: "var(--text-muted)", display: "flex", alignItems: "center", justifyContent: "center", width: "2.2rem", height: "2.2rem", borderRadius: "50%", border: "1px solid var(--border)", flexShrink: 0 }}
-            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--accent)"; el.style.borderColor = "var(--accent-glow)"; }}
-            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--text-muted)"; el.style.borderColor = "var(--border)"; }}
+            style={{ color: "var(--text-muted)", display: "flex", alignItems: "center", justifyContent: "center", width: "2.2rem", height: "2.2rem", borderRadius: "50%", border: "1px solid var(--border)", flexShrink: 0, cursor: "pointer", transition: "color 0.15s, border-color 0.15s, background 0.15s" }}
+            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--accent)"; el.style.borderColor = "var(--accent-glow)"; el.style.background = "var(--accent-dim)"; }}
+            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = "var(--text-muted)"; el.style.borderColor = "var(--border)"; el.style.background = "transparent"; }}
           >
             <ThemeIcon theme={theme} />
           </button>

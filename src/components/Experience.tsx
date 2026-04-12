@@ -181,7 +181,12 @@ export default function Experience() {
                   color: tab === t ? "var(--accent)" : "var(--text-muted)",
                   border: tab === t ? "1px solid var(--accent-glow)" : "1px solid transparent",
                   letterSpacing: "0.01em",
-                }}>{t}</button>
+                  cursor: "pointer",
+                  transition: "color 0.15s, background 0.15s",
+                }}
+                onMouseEnter={e => { if (tab !== t) { (e.currentTarget as HTMLElement).style.color = "var(--text-primary)"; } }}
+                onMouseLeave={e => { if (tab !== t) { (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"; } }}
+              >{t}</button>
             ))}
           </div>
         </motion.div>
