@@ -76,13 +76,6 @@ html.light {
   --brain-glow: radial-gradient(circle, rgba(186, 230, 255, 1.0) 0%, rgba(210, 240, 255, 0.65) 40%, transparent 68%);
 }
 
-/* ─── Brain image theme adaptation ──────────────────────────────────────────── */
-/* Dark mode: brain is white — visible on dark background (default) */
-/* Light mode: invert to dark so brain is visible on light background */
-html.light .brain-img {
-  filter: invert(0.85) hue-rotate(180deg) brightness(0.6);
-}
-
 /* ─── Reset ───────────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
