@@ -8,7 +8,6 @@ const skills = [
   { category: "Frameworks/ Libraries",       items: ["NumPy", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn","TensorFlow", "PyTorch", "XGBoost", "LangChain", "LangGraph" ] },
   { category: "Tools/ Platforms", items: ["Git", "GitHub", "Figma", "Docker", "VSCode", "R", "SAS", "MATLAB", "Microsoft Office (Word, Excel, PowerPoint, Outlook)", "Rstudio", "MLflow", "MLOps"] },
   { category: "Workflows Automatisation",          items: ["Make", "N8N", "ElevenLabs", "Retell AI"] },
-  { category: "Tools",         items: ["Git", "Docker", "Figma", "MLflow", "R", "MATLAB"] },
 ];
 
 const stats = [

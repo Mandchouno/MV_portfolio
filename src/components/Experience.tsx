@@ -14,7 +14,7 @@ const experiences = [
   },
   {
     role: "Web Catalog Clerk", company: "UAP Heavy-Duty Vehicle Parts",
-    period: "May – Aug 2024", location: "Montréal, QC", type: "Seasonal",
+    period: "May – Aug 2024", location: "Montréal, QC", type: "Internship",
     points: ["Standardized and cleaned product data for e-commerce integration.", "Prepared large-scale Excel datasets for automated import workflows.", "Supported the marketing team with data organization and operational tasks."],
     tools: ["Microsoft Excel", "VBA", "Data Management"],
     accent: false, fromX: 160,
@@ -29,8 +29,8 @@ const experiences = [
 ];
 
 const education = [
-  { degree: "B.Sc. — Bidisciplinary Mathematics & Computer Science", specialty: "Data Science Specialization", institution: "Université de Montréal", period: "Jan 2022 – Dec 2025", location: "Montréal, QC", accent: true, fromX: -140 },
-  { degree: "French Baccalaureate", specialty: "Mathematics", institution: "Lycée International de Panama", period: "2008 – 2022", location: "Panama City, Panama", accent: false, fromX: 140 },
+  { degree: "B.Sc. — Bidisciplinary Bachelor in Mathematics/Statistics & Computer Science", specialty: "Data Science Specialization", institution: "Université of Montréal", period: "Jan 2022 – Dec 2025", location: "Montréal, QC", accent: true, fromX: -140 },
+  { degree: "French Baccalaureate", specialty: "Mathematics, Physics and Chemistry Specialization", institution: "Lycée International de Panama", period: "2008 – 2022", location: "Panama City, Panama", accent: false, fromX: 140 },
 ];
 
 function ExpCard({ exp, i, off }: { exp: typeof experiences[0]; i: number; off: MotionValue<number> }) {
