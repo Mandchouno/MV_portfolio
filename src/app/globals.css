@@ -27,9 +27,9 @@
   /* Surfaces */
   --surface-subtle: rgba(231, 236, 244, 0.04);
   --surface-medium: rgba(231, 236, 244, 0.08);
-  --surface-warm:   rgba(251, 191, 100, 0.09);
-  --border-warm:    rgba(251, 191, 100, 0.22);
-  --text-warm:      #c8a96e;
+  --surface-warm:   rgba(251, 100, 60, 0.10);
+  --border-warm:    rgba(251, 100, 60, 0.28);
+  --text-warm:      #e8845a;
 
   /* Grid */
   --grid-line: rgba(255, 255, 255, 0.038);
@@ -66,9 +66,9 @@ html.light {
 
   --surface-subtle: rgba(0, 0, 0, 0.04);
   --surface-medium: rgba(0, 0, 0, 0.08);
-  --surface-warm:   rgba(180, 120, 20, 0.09);
-  --border-warm:    rgba(180, 120, 20, 0.25);
-  --text-warm:      #92640a;
+  --surface-warm:   rgba(220, 80, 40, 0.10);
+  --border-warm:    rgba(220, 80, 40, 0.28);
+  --text-warm:      #c0522a;
 
   --grid-line: rgba(0, 0, 0, 0.055);
 
