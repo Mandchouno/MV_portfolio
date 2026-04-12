@@ -100,9 +100,9 @@ function ProjectCard({ p, i, off }: { p: typeof projects[0]; i: number; off: Mot
               fontSize: "clamp(0.85rem, 1.1vw, 1.2rem)",
               padding: "0.3rem 0.85rem",
               borderRadius: "9999px",
-              border: "1px solid var(--border)",
-              color: "var(--text-muted)",
-              background: "var(--surface-subtle)",
+              border: "1px solid var(--border-warm)",
+              color: "var(--text-warm)",
+              background: "var(--surface-warm)",
             }}>{tag}</span>
           ))}
         </div>

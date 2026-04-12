@@ -82,9 +82,9 @@ function ExpCard({ exp, i, off }: { exp: typeof experiences[0]; i: number; off: 
               fontSize: "clamp(0.68rem, 0.85vw, 0.82rem)",
               padding: "0.2rem 0.65rem",
               borderRadius: "9999px",
-              border: "1px solid var(--border)",
-              color: "var(--text-muted)",
-              background: "var(--surface-subtle)",
+              border: "1px solid var(--border-warm)",
+              color: "var(--text-warm)",
+              background: "var(--surface-warm)",
             }}>{t}</span>
           ))}
         </div>
