@@ -69,7 +69,7 @@ export default function BrainTransition() {
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${BASE}/brain.svg`} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+          <img src={`${BASE}/brain.svg`} alt="" className="brain-img" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
         </motion.div>
 
         {/* Right half */}
@@ -82,7 +82,7 @@ export default function BrainTransition() {
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${BASE}/brain.svg`} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+          <img src={`${BASE}/brain.svg`} alt="" className="brain-img" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
         </motion.div>
       </div>
     </motion.div>
