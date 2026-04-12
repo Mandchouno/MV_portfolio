@@ -99,7 +99,9 @@ export default function Navigation() {
                   key={link.label}
                   onClick={() => goTo(link.index)}
                   className="relative transition-colors duration-200"
-                  style={{ color: isActive ? "var(--accent)" : "var(--text-muted)", fontSize: "clamp(0.82rem, 1vw, 1rem)", letterSpacing: "0.02em" }}
+                  style={{ color: isActive ? "var(--accent)" : "var(--text-muted)", fontSize: "clamp(0.82rem, 1vw, 1rem)", letterSpacing: "0.02em", cursor: "pointer", transition: "color 0.15s" }}
+                  onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = "var(--text-primary)"; }}
+                  onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = "var(--text-muted)"; }}
                 >
                   {link.label}
                   {isActive && (

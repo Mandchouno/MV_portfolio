@@ -33,7 +33,10 @@ function ProjectCard({ p, i, off }: { p: typeof projects[0]; i: number; off: Mot
 
   return (
     <motion.div style={{ x: cx, y: cy, opacity: co, scale: cs, height: "100%" }}>
-      <div
+      <a
+        href={p.github}
+        target="_blank"
+        rel="noopener noreferrer"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className="glass glass-hover h-full"
@@ -48,7 +51,8 @@ function ProjectCard({ p, i, off }: { p: typeof projects[0]; i: number; off: Mot
           boxShadow: hovered ? "0 16px 40px rgba(0,0,0,0.22), 0 0 0 1px var(--accent-dim)" : "none",
           transform: hovered ? "translateY(-4px)" : "none",
           transition: "border-color 0.3s, box-shadow 0.3s, transform 0.3s",
-          cursor: "default",
+          cursor: "pointer",
+          textDecoration: "none",
         }}
       >
         {/* Header row */}
@@ -102,7 +106,7 @@ function ProjectCard({ p, i, off }: { p: typeof projects[0]; i: number; off: Mot
             }}>{tag}</span>
           ))}
         </div>
-      </div>
+      </a>
     </motion.div>
   );
 }
