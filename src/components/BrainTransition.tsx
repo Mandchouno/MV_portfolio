@@ -3,8 +3,6 @@
 import { motion, useTransform } from "framer-motion";
 import { useProgress } from "./ScrollDriven";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
 // Brain fills ~55% of the smaller viewport dimension
 const SIZE = "clamp(280px, 54vmin, 640px)";
 // Glow circle is much larger — fills most of the upper screen area
@@ -69,7 +67,7 @@ export default function BrainTransition() {
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${BASE}/brain.svg`} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+          <img src="/MV_portfolio/brain.svg" alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
         </motion.div>
 
         {/* Right half */}
@@ -82,7 +80,7 @@ export default function BrainTransition() {
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${BASE}/brain.svg`} alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+          <img src="/MV_portfolio/brain.svg" alt="" style={{ width: "100%", height: "100%", objectFit: "contain" }} />
         </motion.div>
       </div>
     </motion.div>
