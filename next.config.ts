@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   env: {
-    NEXT_PUBLIC_BASE_PATH: process.env.NODE_ENV === "production" ? "/MV_portfolio" : "",
+    NEXT_PUBLIC_BASE_PATH: "/MV_portfolio",
   },
 };
 
